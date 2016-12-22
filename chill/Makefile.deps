@@ -1,0 +1,2040 @@
+dep.o: dep.cc dep.hh omega/include/omega.h \
+ omega/include/omega/omega_core/debugging.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/stdc-predef.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/ctype.h \
+ /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h /usr/include/xlocale.h \
+ omega/include/omega/pres_var.h omega/include/omega/pres_gen.h \
+ omega/include/omega/omega_core/oc.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ omega/include/basic/util.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/assert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/sstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/sstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stdexcept \
+ omega/include/basic/Tuple.h omega/include/basic/Collection.h \
+ omega/include/basic/Iterator.h omega/include/basic/Tuple.c \
+ omega/include/basic/ConstString.h omega/include/basic/List.h \
+ omega/include/basic/Link.h omega/include/basic/List.c \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ omega/include/omega/pres_cnstr.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ omega/include/omega/pres_subs.h omega/include/omega/Relation.h \
+ omega/include/omega/RelBody.h omega/include/omega/pres_form.h \
+ omega/include/omega/pres_dnf.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ /usr/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include-fixed/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ omega/include/omega/Relations.h omega/include/omega/pres_conj.h \
+ omega/include/omega/pres_decl.h omega/include/basic/Section.h \
+ omega/include/basic/Section.c omega/include/omega/pres_logic.h \
+ omega/include/omega/pres_quant.h omega/include/omega/pres_cmpr.h \
+ omega/include/omega/Rel_map.h omega/include/omega/farkas.h \
+ omega/include/omega/hull.h omega/include/omega/closure.h graph.hh \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/set \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_set.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multiset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stack \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/deque \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_deque.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/deque.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_stack.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/algorithm \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algo.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/algorithmfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_heap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tempbuf.h \
+ ir_code.hh omega/include/code_gen/CG_outputRepr.h \
+ omega/include/code_gen/CG_outputBuilder.h chill_error.hh
+omegatools.o: omegatools.cc omega/include/codegen.h \
+ omega/include/omega/Relation.h omega/include/omega/RelBody.h \
+ omega/include/omega/pres_form.h omega/include/omega/pres_gen.h \
+ omega/include/omega/omega_core/oc.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/stdc-predef.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/xlocale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /usr/include/ctype.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ omega/include/basic/util.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/assert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/sstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/sstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stdexcept \
+ omega/include/omega/omega_core/debugging.h omega/include/basic/Tuple.h \
+ omega/include/basic/Collection.h omega/include/basic/Iterator.h \
+ omega/include/basic/Tuple.c omega/include/basic/ConstString.h \
+ omega/include/basic/List.h omega/include/basic/Link.h \
+ omega/include/basic/List.c omega/include/omega/pres_dnf.h \
+ omega/include/omega/pres_cnstr.h omega/include/omega/pres_var.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ /usr/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include-fixed/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ omega/include/omega/Relations.h omega/include/code_gen/CG.h \
+ omega/include/basic/boolset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iterator \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stream_iterator.h \
+ omega/include/code_gen/CG_outputBuilder.h \
+ omega/include/code_gen/CG_outputRepr.h omegatools.hh \
+ omega/include/omega.h omega/include/omega/pres_subs.h \
+ omega/include/omega/pres_conj.h omega/include/omega/pres_decl.h \
+ omega/include/basic/Section.h omega/include/basic/Section.c \
+ omega/include/omega/pres_logic.h omega/include/omega/pres_quant.h \
+ omega/include/omega/pres_cmpr.h omega/include/omega/Rel_map.h \
+ omega/include/omega/farkas.h omega/include/omega/hull.h \
+ omega/include/omega/closure.h dep.hh graph.hh \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/set \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_set.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multiset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stack \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/deque \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_deque.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/deque.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_stack.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/algorithm \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algo.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/algorithmfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_heap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tempbuf.h \
+ ir_code.hh chill_error.hh
+irtools.o: irtools.cc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/features.h /usr/include/stdc-predef.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/include/wchar.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/xlocale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /usr/include/ctype.h /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ omega/include/code_gen/CG_outputBuilder.h \
+ omega/include/code_gen/CG_outputRepr.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ irtools.hh omega/include/omega.h \
+ omega/include/omega/omega_core/debugging.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ omega/include/omega/pres_var.h omega/include/omega/pres_gen.h \
+ omega/include/omega/omega_core/oc.h omega/include/basic/util.h \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/assert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/sstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/sstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stdexcept \
+ omega/include/basic/Tuple.h omega/include/basic/Collection.h \
+ omega/include/basic/Iterator.h omega/include/basic/Tuple.c \
+ omega/include/basic/ConstString.h omega/include/basic/List.h \
+ omega/include/basic/Link.h omega/include/basic/List.c \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ omega/include/omega/pres_cnstr.h omega/include/omega/pres_subs.h \
+ omega/include/omega/Relation.h omega/include/omega/RelBody.h \
+ omega/include/omega/pres_form.h omega/include/omega/pres_dnf.h \
+ /usr/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include-fixed/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ omega/include/omega/Relations.h omega/include/omega/pres_conj.h \
+ omega/include/omega/pres_decl.h omega/include/basic/Section.h \
+ omega/include/basic/Section.c omega/include/omega/pres_logic.h \
+ omega/include/omega/pres_quant.h omega/include/omega/pres_cmpr.h \
+ omega/include/omega/Rel_map.h omega/include/omega/farkas.h \
+ omega/include/omega/hull.h omega/include/omega/closure.h ir_code.hh \
+ dep.hh graph.hh \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/set \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_set.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multiset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stack \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/deque \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_deque.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/deque.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_stack.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/algorithm \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algo.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/algorithmfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_heap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tempbuf.h \
+ chill_error.hh omegatools.hh
+loop.o: loop.cc /usr/include/limits.h /usr/include/features.h \
+ /usr/include/stdc-predef.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include-fixed/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_val.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
+ /usr/include/x86_64-linux-gnu/bits/inf.h \
+ /usr/include/x86_64-linux-gnu/bits/nan.h \
+ /usr/include/x86_64-linux-gnu/bits/mathdef.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h omega/include/codegen.h \
+ omega/include/omega/Relation.h omega/include/omega/RelBody.h \
+ omega/include/omega/pres_form.h omega/include/omega/pres_gen.h \
+ omega/include/omega/omega_core/oc.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/xlocale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /usr/include/ctype.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ omega/include/basic/util.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/assert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/sstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/sstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stdexcept \
+ omega/include/omega/omega_core/debugging.h omega/include/basic/Tuple.h \
+ omega/include/basic/Collection.h omega/include/basic/Iterator.h \
+ omega/include/basic/Tuple.c omega/include/basic/ConstString.h \
+ omega/include/basic/List.h omega/include/basic/Link.h \
+ omega/include/basic/List.c omega/include/omega/pres_dnf.h \
+ omega/include/omega/pres_cnstr.h omega/include/omega/pres_var.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ omega/include/omega/Relations.h omega/include/code_gen/CG.h \
+ omega/include/basic/boolset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iterator \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stream_iterator.h \
+ omega/include/code_gen/CG_outputBuilder.h \
+ omega/include/code_gen/CG_outputRepr.h omega/include/code_gen/CG_utils.h \
+ omega/include/omega.h omega/include/omega/pres_subs.h \
+ omega/include/omega/pres_conj.h omega/include/omega/pres_decl.h \
+ omega/include/basic/Section.h omega/include/basic/Section.c \
+ omega/include/omega/pres_logic.h omega/include/omega/pres_quant.h \
+ omega/include/omega/pres_cmpr.h omega/include/omega/Rel_map.h \
+ omega/include/omega/farkas.h omega/include/omega/hull.h \
+ omega/include/omega/closure.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/set \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_set.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multiset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/algorithm \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algo.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/algorithmfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_heap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tempbuf.h \
+ loop.hh dep.hh graph.hh \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stack \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/deque \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_deque.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/deque.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_stack.h \
+ ir_code.hh chill_error.hh irtools.hh omegatools.hh /usr/include/string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_list.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/list.tcc
+loop_basic.o: loop_basic.cc loop.hh omega/include/omega.h \
+ omega/include/omega/omega_core/debugging.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/stdc-predef.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/ctype.h \
+ /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h /usr/include/xlocale.h \
+ omega/include/omega/pres_var.h omega/include/omega/pres_gen.h \
+ omega/include/omega/omega_core/oc.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ omega/include/basic/util.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/assert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/sstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/sstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stdexcept \
+ omega/include/basic/Tuple.h omega/include/basic/Collection.h \
+ omega/include/basic/Iterator.h omega/include/basic/Tuple.c \
+ omega/include/basic/ConstString.h omega/include/basic/List.h \
+ omega/include/basic/Link.h omega/include/basic/List.c \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ omega/include/omega/pres_cnstr.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ omega/include/omega/pres_subs.h omega/include/omega/Relation.h \
+ omega/include/omega/RelBody.h omega/include/omega/pres_form.h \
+ omega/include/omega/pres_dnf.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ /usr/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include-fixed/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ omega/include/omega/Relations.h omega/include/omega/pres_conj.h \
+ omega/include/omega/pres_decl.h omega/include/basic/Section.h \
+ omega/include/basic/Section.c omega/include/omega/pres_logic.h \
+ omega/include/omega/pres_quant.h omega/include/omega/pres_cmpr.h \
+ omega/include/omega/Rel_map.h omega/include/omega/farkas.h \
+ omega/include/omega/hull.h omega/include/omega/closure.h \
+ omega/include/codegen.h omega/include/code_gen/CG.h \
+ omega/include/basic/boolset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iterator \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stream_iterator.h \
+ omega/include/code_gen/CG_outputBuilder.h \
+ omega/include/code_gen/CG_outputRepr.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/set \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_set.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multiset.h \
+ dep.hh graph.hh \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stack \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/deque \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_deque.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/deque.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_stack.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/algorithm \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algo.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/algorithmfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_heap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tempbuf.h \
+ ir_code.hh chill_error.hh irtools.hh omegatools.hh /usr/include/string.h
+loop_datacopy.o: loop_datacopy.cc omega/include/codegen.h \
+ omega/include/omega/Relation.h omega/include/omega/RelBody.h \
+ omega/include/omega/pres_form.h omega/include/omega/pres_gen.h \
+ omega/include/omega/omega_core/oc.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/stdc-predef.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/xlocale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /usr/include/ctype.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ omega/include/basic/util.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/assert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/sstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/sstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stdexcept \
+ omega/include/omega/omega_core/debugging.h omega/include/basic/Tuple.h \
+ omega/include/basic/Collection.h omega/include/basic/Iterator.h \
+ omega/include/basic/Tuple.c omega/include/basic/ConstString.h \
+ omega/include/basic/List.h omega/include/basic/Link.h \
+ omega/include/basic/List.c omega/include/omega/pres_dnf.h \
+ omega/include/omega/pres_cnstr.h omega/include/omega/pres_var.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ /usr/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include-fixed/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ omega/include/omega/Relations.h omega/include/code_gen/CG.h \
+ omega/include/basic/boolset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iterator \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stream_iterator.h \
+ omega/include/code_gen/CG_outputBuilder.h \
+ omega/include/code_gen/CG_outputRepr.h omega/include/code_gen/CG_utils.h \
+ omega/include/omega.h omega/include/omega/pres_subs.h \
+ omega/include/omega/pres_conj.h omega/include/omega/pres_decl.h \
+ omega/include/basic/Section.h omega/include/basic/Section.c \
+ omega/include/omega/pres_logic.h omega/include/omega/pres_quant.h \
+ omega/include/omega/pres_cmpr.h omega/include/omega/Rel_map.h \
+ omega/include/omega/farkas.h omega/include/omega/hull.h \
+ omega/include/omega/closure.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/set \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_set.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multiset.h \
+ loop.hh dep.hh graph.hh \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stack \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/deque \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_deque.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/deque.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_stack.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/algorithm \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algo.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/algorithmfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_heap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tempbuf.h \
+ ir_code.hh chill_error.hh irtools.hh omegatools.hh
+loop_unroll.o: loop_unroll.cc omega/include/codegen.h \
+ omega/include/omega/Relation.h omega/include/omega/RelBody.h \
+ omega/include/omega/pres_form.h omega/include/omega/pres_gen.h \
+ omega/include/omega/omega_core/oc.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/stdc-predef.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/xlocale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /usr/include/ctype.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ omega/include/basic/util.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/assert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/sstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/sstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stdexcept \
+ omega/include/omega/omega_core/debugging.h omega/include/basic/Tuple.h \
+ omega/include/basic/Collection.h omega/include/basic/Iterator.h \
+ omega/include/basic/Tuple.c omega/include/basic/ConstString.h \
+ omega/include/basic/List.h omega/include/basic/Link.h \
+ omega/include/basic/List.c omega/include/omega/pres_dnf.h \
+ omega/include/omega/pres_cnstr.h omega/include/omega/pres_var.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ /usr/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include-fixed/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ omega/include/omega/Relations.h omega/include/code_gen/CG.h \
+ omega/include/basic/boolset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iterator \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stream_iterator.h \
+ omega/include/code_gen/CG_outputBuilder.h \
+ omega/include/code_gen/CG_outputRepr.h omega/include/code_gen/CG_utils.h \
+ omega/include/omega.h omega/include/omega/pres_subs.h \
+ omega/include/omega/pres_conj.h omega/include/omega/pres_decl.h \
+ omega/include/basic/Section.h omega/include/basic/Section.c \
+ omega/include/omega/pres_logic.h omega/include/omega/pres_quant.h \
+ omega/include/omega/pres_cmpr.h omega/include/omega/Rel_map.h \
+ omega/include/omega/farkas.h omega/include/omega/hull.h \
+ omega/include/omega/closure.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/set \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_set.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multiset.h \
+ loop.hh dep.hh graph.hh \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stack \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/deque \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_deque.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/deque.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_stack.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/algorithm \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algo.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/algorithmfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_heap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tempbuf.h \
+ ir_code.hh chill_error.hh irtools.hh omegatools.hh /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_val.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
+ /usr/include/x86_64-linux-gnu/bits/inf.h \
+ /usr/include/x86_64-linux-gnu/bits/nan.h \
+ /usr/include/x86_64-linux-gnu/bits/mathdef.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h
+loop_tile.o: loop_tile.cc omega/include/codegen.h \
+ omega/include/omega/Relation.h omega/include/omega/RelBody.h \
+ omega/include/omega/pres_form.h omega/include/omega/pres_gen.h \
+ omega/include/omega/omega_core/oc.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/stdc-predef.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/xlocale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /usr/include/ctype.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ omega/include/basic/util.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/assert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/sstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/sstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stdexcept \
+ omega/include/omega/omega_core/debugging.h omega/include/basic/Tuple.h \
+ omega/include/basic/Collection.h omega/include/basic/Iterator.h \
+ omega/include/basic/Tuple.c omega/include/basic/ConstString.h \
+ omega/include/basic/List.h omega/include/basic/Link.h \
+ omega/include/basic/List.c omega/include/omega/pres_dnf.h \
+ omega/include/omega/pres_cnstr.h omega/include/omega/pres_var.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ /usr/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include-fixed/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ omega/include/omega/Relations.h omega/include/code_gen/CG.h \
+ omega/include/basic/boolset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iterator \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stream_iterator.h \
+ omega/include/code_gen/CG_outputBuilder.h \
+ omega/include/code_gen/CG_outputRepr.h loop.hh omega/include/omega.h \
+ omega/include/omega/pres_subs.h omega/include/omega/pres_conj.h \
+ omega/include/omega/pres_decl.h omega/include/basic/Section.h \
+ omega/include/basic/Section.c omega/include/omega/pres_logic.h \
+ omega/include/omega/pres_quant.h omega/include/omega/pres_cmpr.h \
+ omega/include/omega/Rel_map.h omega/include/omega/farkas.h \
+ omega/include/omega/hull.h omega/include/omega/closure.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/set \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_set.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multiset.h \
+ dep.hh graph.hh \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stack \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/deque \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_deque.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/deque.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_stack.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/algorithm \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algo.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/algorithmfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_heap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tempbuf.h \
+ ir_code.hh chill_error.hh irtools.hh omegatools.hh
+loop_extra.o: loop_extra.cc omega/include/codegen.h \
+ omega/include/omega/Relation.h omega/include/omega/RelBody.h \
+ omega/include/omega/pres_form.h omega/include/omega/pres_gen.h \
+ omega/include/omega/omega_core/oc.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/stdc-predef.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/xlocale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /usr/include/ctype.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ omega/include/basic/util.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/assert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/sstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/sstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stdexcept \
+ omega/include/omega/omega_core/debugging.h omega/include/basic/Tuple.h \
+ omega/include/basic/Collection.h omega/include/basic/Iterator.h \
+ omega/include/basic/Tuple.c omega/include/basic/ConstString.h \
+ omega/include/basic/List.h omega/include/basic/Link.h \
+ omega/include/basic/List.c omega/include/omega/pres_dnf.h \
+ omega/include/omega/pres_cnstr.h omega/include/omega/pres_var.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ /usr/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include-fixed/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ omega/include/omega/Relations.h omega/include/code_gen/CG.h \
+ omega/include/basic/boolset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iterator \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stream_iterator.h \
+ omega/include/code_gen/CG_outputBuilder.h \
+ omega/include/code_gen/CG_outputRepr.h omega/include/code_gen/CG_utils.h \
+ omega/include/omega.h omega/include/omega/pres_subs.h \
+ omega/include/omega/pres_conj.h omega/include/omega/pres_decl.h \
+ omega/include/basic/Section.h omega/include/basic/Section.c \
+ omega/include/omega/pres_logic.h omega/include/omega/pres_quant.h \
+ omega/include/omega/pres_cmpr.h omega/include/omega/Rel_map.h \
+ omega/include/omega/farkas.h omega/include/omega/hull.h \
+ omega/include/omega/closure.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/set \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_set.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multiset.h \
+ loop.hh dep.hh graph.hh \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stack \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/deque \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_deque.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/deque.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_stack.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/algorithm \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algo.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/algorithmfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_heap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tempbuf.h \
+ ir_code.hh chill_error.hh irtools.hh omegatools.hh
+chill_run.o: chill_run.cc chilldebug.h /usr/include/signal.h \
+ /usr/include/features.h /usr/include/stdc-predef.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/signum.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/siginfo.h \
+ /usr/include/x86_64-linux-gnu/bits/sigaction.h \
+ /usr/include/x86_64-linux-gnu/bits/sigcontext.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/sigstack.h \
+ /usr/include/x86_64-linux-gnu/sys/ucontext.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/sigthread.h /usr/include/stdio.h \
+ /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h /usr/include/xlocale.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/string.h \
+ chill_env.hh loop.hh omega/include/omega.h \
+ omega/include/omega/omega_core/debugging.h /usr/include/ctype.h \
+ omega/include/omega/pres_var.h omega/include/omega/pres_gen.h \
+ omega/include/omega/omega_core/oc.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ omega/include/basic/util.h /usr/include/assert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/sstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/sstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stdexcept \
+ omega/include/basic/Tuple.h omega/include/basic/Collection.h \
+ omega/include/basic/Iterator.h omega/include/basic/Tuple.c \
+ omega/include/basic/ConstString.h omega/include/basic/List.h \
+ omega/include/basic/Link.h omega/include/basic/List.c \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ omega/include/omega/pres_cnstr.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ omega/include/omega/pres_subs.h omega/include/omega/Relation.h \
+ omega/include/omega/RelBody.h omega/include/omega/pres_form.h \
+ omega/include/omega/pres_dnf.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ /usr/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include-fixed/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ omega/include/omega/Relations.h omega/include/omega/pres_conj.h \
+ omega/include/omega/pres_decl.h omega/include/basic/Section.h \
+ omega/include/basic/Section.c omega/include/omega/pres_logic.h \
+ omega/include/omega/pres_quant.h omega/include/omega/pres_cmpr.h \
+ omega/include/omega/Rel_map.h omega/include/omega/farkas.h \
+ omega/include/omega/hull.h omega/include/omega/closure.h \
+ omega/include/codegen.h omega/include/code_gen/CG.h \
+ omega/include/basic/boolset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iterator \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stream_iterator.h \
+ omega/include/code_gen/CG_outputBuilder.h \
+ omega/include/code_gen/CG_outputRepr.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/set \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_set.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multiset.h \
+ dep.hh graph.hh \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stack \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/deque \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_deque.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/deque.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_stack.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/algorithm \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algo.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/algorithmfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_heap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tempbuf.h \
+ ir_code.hh chill_error.hh irtools.hh /usr/local/include/lua.hpp \
+ /usr/local/include/lua.h /usr/local/include/luaconf.h \
+ /usr/local/include/lualib.h /usr/local/include/lauxlib.h
+chill_env.o: chill_env.cc /usr/local/include/lua.hpp \
+ /usr/local/include/lua.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/local/include/luaconf.h /usr/include/limits.h \
+ /usr/include/features.h /usr/include/stdc-predef.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include-fixed/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/local/include/lualib.h /usr/local/include/lauxlib.h \
+ /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h loop.hh \
+ omega/include/omega.h omega/include/omega/omega_core/debugging.h \
+ /usr/include/ctype.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h /usr/include/xlocale.h \
+ omega/include/omega/pres_var.h omega/include/omega/pres_gen.h \
+ omega/include/omega/omega_core/oc.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ omega/include/basic/util.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/assert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/sstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/sstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stdexcept \
+ omega/include/basic/Tuple.h omega/include/basic/Collection.h \
+ omega/include/basic/Iterator.h omega/include/basic/Tuple.c \
+ omega/include/basic/ConstString.h omega/include/basic/List.h \
+ omega/include/basic/Link.h omega/include/basic/List.c \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ omega/include/omega/pres_cnstr.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ omega/include/omega/pres_subs.h omega/include/omega/Relation.h \
+ omega/include/omega/RelBody.h omega/include/omega/pres_form.h \
+ omega/include/omega/pres_dnf.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ omega/include/omega/Relations.h omega/include/omega/pres_conj.h \
+ omega/include/omega/pres_decl.h omega/include/basic/Section.h \
+ omega/include/basic/Section.c omega/include/omega/pres_logic.h \
+ omega/include/omega/pres_quant.h omega/include/omega/pres_cmpr.h \
+ omega/include/omega/Rel_map.h omega/include/omega/farkas.h \
+ omega/include/omega/hull.h omega/include/omega/closure.h \
+ omega/include/codegen.h omega/include/code_gen/CG.h \
+ omega/include/basic/boolset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iterator \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stream_iterator.h \
+ omega/include/code_gen/CG_outputBuilder.h \
+ omega/include/code_gen/CG_outputRepr.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/set \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_set.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multiset.h \
+ dep.hh graph.hh \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stack \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/deque \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_deque.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/deque.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_stack.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/algorithm \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algo.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/algorithmfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_heap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tempbuf.h \
+ ir_code.hh chill_error.hh irtools.hh chill_env.hh chill_run_util.hh
+lex.yy.o: lex.yy.cc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/features.h /usr/include/stdc-predef.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/include/wchar.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/xlocale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /usr/include/ctype.h /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ /usr/include/errno.h /usr/include/x86_64-linux-gnu/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdio \
+ /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstring \
+ /usr/include/string.h /usr/include/FlexLexer.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ parser.tab.hh
+parser.tab.o: parser.tab.cc /usr/include/stdio.h /usr/include/features.h \
+ /usr/include/stdc-predef.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_val.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
+ /usr/include/x86_64-linux-gnu/bits/inf.h \
+ /usr/include/x86_64-linux-gnu/bits/nan.h \
+ /usr/include/x86_64-linux-gnu/bits/mathdef.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iostream \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++config.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/os_defines.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/cpu_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ostream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ios \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iosfwd \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stringfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/postypes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwchar \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstddef \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/xlocale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/char_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algobase.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/functexcept.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/exception_defines.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/cpp_type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/type_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/numeric_traits.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_pair.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/move.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/concept_check.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_types.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator_base_funcs.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_iterator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/debug/debug.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/localefwd.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/clocale \
+ /usr/include/locale.h /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cctype \
+ /usr/include/ctype.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ios_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/atomicity.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/atomic_word.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/string \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/allocator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/ext/new_allocator.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/new \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream_insert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cxxabi-forced.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_function.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/backward/binders.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/initializer_list \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_string.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_classes.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/streambuf \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_base.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/ctype_inline.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/locale_facets.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/basic_ios.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/ostream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/istream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/istream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/fstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/codecvt.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdio \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/basic_file.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/./bits/c++io.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/fstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/vector \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_construct.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_uninitialized.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_vector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_bvector.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/vector.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/map \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tree.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_map.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multimap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/set \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_set.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_multiset.h \
+ /usr/include/FlexLexer.h parser.tab.hh omega/include/omega.h \
+ omega/include/omega/omega_core/debugging.h \
+ omega/include/omega/pres_var.h omega/include/omega/pres_gen.h \
+ omega/include/omega/omega_core/oc.h omega/include/basic/util.h \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/assert.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/sstream \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/sstream.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stdexcept \
+ omega/include/basic/Tuple.h omega/include/basic/Collection.h \
+ omega/include/basic/Iterator.h omega/include/basic/Tuple.c \
+ omega/include/basic/ConstString.h omega/include/basic/List.h \
+ omega/include/basic/Link.h omega/include/basic/List.c \
+ omega/include/omega/pres_cnstr.h omega/include/omega/pres_subs.h \
+ omega/include/omega/Relation.h omega/include/omega/RelBody.h \
+ omega/include/omega/pres_form.h omega/include/omega/pres_dnf.h \
+ /usr/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include-fixed/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ omega/include/omega/Relations.h omega/include/omega/pres_conj.h \
+ omega/include/omega/pres_decl.h omega/include/basic/Section.h \
+ omega/include/basic/Section.c omega/include/omega/pres_logic.h \
+ omega/include/omega/pres_quant.h omega/include/omega/pres_cmpr.h \
+ omega/include/omega/Rel_map.h omega/include/omega/farkas.h \
+ omega/include/omega/hull.h omega/include/omega/closure.h ir_code.hh \
+ omega/include/code_gen/CG_outputRepr.h \
+ omega/include/code_gen/CG_outputBuilder.h loop.hh \
+ omega/include/codegen.h omega/include/code_gen/CG.h \
+ omega/include/basic/boolset.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/iterator \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stream_iterator.h \
+ dep.hh graph.hh \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/stack \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/deque \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_deque.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/deque.tcc \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_stack.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/algorithm \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_algo.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/cstdlib \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/algorithmfwd.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_heap.h \
+ /home/bobw/Work/rose/install/include/g++_HEADERS/hdrs3/bits/stl_tempbuf.h \
+ chill_error.hh irtools.hh

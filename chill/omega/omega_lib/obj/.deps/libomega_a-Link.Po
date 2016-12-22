@@ -1,0 +1,11 @@
+libomega_a-Link.o: ../../basic/src/Link.cc ../../include/basic/Link.h \
+ ../../include/basic/Iterator.h ../../include/basic/Collection.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h
+
+../../include/basic/Link.h:
+
+../../include/basic/Iterator.h:
+
+../../include/basic/Collection.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h:
