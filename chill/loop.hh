@@ -263,6 +263,7 @@ public:
 	std::vector<int> OrothognalVector() ;
 
 	float dotProduct(Vector v) ;
+	int   dotProduct_v2(Vector v) ;
 
 };
 

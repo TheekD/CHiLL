@@ -1678,6 +1678,15 @@ void Loop::testFunction() {
 
 void Loop::dTile() {
 
+
+
+	delete last_compute_cgr_;
+	last_compute_cgr_ = NULL;
+	delete last_compute_cg_;
+	last_compute_cg_ = NULL;
+
+
+	// Saves all the direct dependencies in the source code
 	std::vector<hyperPlane> *depVectors;
 
 	for (int i = 0; i < dep.vertex.size(); i++) {
@@ -1703,6 +1712,8 @@ void Loop::dTile() {
 						omega::coef_t lbound = dvs[k].lbounds[z];
 						omega::coef_t ubound = dvs[k].ubounds[z];
 
+						// we consider only this condition in the dependency selection
+						// this condition will change
 						if (lbound == ubound) {
 
 							//(*depVectors)[truedep].depVector.addElements(lbound) ;
@@ -1712,6 +1723,7 @@ void Loop::dTile() {
 
 					}
 
+					// add to the dependency data struture
 					(*depVectors)[truedep].depVector.setVector(depvector);
 
 				}
@@ -1722,6 +1734,7 @@ void Loop::dTile() {
 
 	}
 
+	// For all the dependencies found find the normal vector
 	for (int i = 0; i < (*depVectors).size(); i++) {
 
 		(*depVectors)[i].depVector.print();
@@ -1733,6 +1746,9 @@ void Loop::dTile() {
 
 	}
 
+
+	// For any normal hyperplane (h) and with any dependency d
+	// h.d >= 0 has to be satisfied
 	std::vector<int> impossibleNormalDependencies;
 
 	for (int i = 0; i < (*depVectors).size(); i++) {
@@ -1748,6 +1764,10 @@ void Loop::dTile() {
 		//	(*depVectors)[i].printOrtho();
 
 	}
+
+	// Find the hyperplanes that can be used to slice the iteration space
+	// only generic implementation is found here,
+	// we need to consider optimal hyperplanes from all the set of hyperplanes
 
 	std::vector<Vector> selectedhyperplanes;
 
@@ -1769,127 +1789,124 @@ void Loop::dTile() {
 	}
 
 
-
-	/*int n = stmt[0].xform.n_out();
-	omega::Relation r(n, n);
-
-	F_And *root = r.add_and();
-
-	for (int j = 1; j <= n; j++) {  // for each element in the relation
-
-		EQ_Handle eq = root->add_EQ(); // add a equation
-
-		if (j == 2) {
-
-			eq.update_coef(r.input_var(j), 2);
-			eq.update_coef(r.input_var(j + 2), 1);
-			eq.update_coef(r.output_var(j), -1);
-
-		}
-		if (j == 4) {
-
-			eq.update_coef(r.input_var(j), 1);
-			eq.update_coef(r.input_var(j - 2), 1);
-			eq.update_coef(r.output_var(j), -1);
-
-		}
-
-		else { // at auxiliary loop levels
-
-			eq.update_coef(r.input_var(j), 1);
-			eq.update_coef(r.output_var(j), -1);
-
-		}
-
-	}
-
-
-	r.print() ;
-	stmt[0].xform = Composition(r, stmt[0].xform);
-	stmt[0].xform.simplify();  */
-
 	// apply the transformatin using Omega
 
 	for (int i = 0; i < stmt.size(); i++) {
 
-	 int n = stmt[i].xform.n_out();
-	 omega::Relation r(n, n);
+		int n = stmt[i].xform.n_out();
+		omega::Relation r(n, n);
 
-	 F_And *root = r.add_and();
-	 int k = 0;
-	 for (int j = 1; j <= n; j++) {  // for each element in the relation
+		F_And *root = r.add_and();
+		int k = 0;
+		for (int j = 1; j <= n; j++) {  // for each element in the relation
 
-	 EQ_Handle eq = root->add_EQ(); // add a equation
+			EQ_Handle eq = root->add_EQ(); // add a equation
 
-	 if (j % 2 == 0) {
+			if (j % 2 == 0) {
 
-	 // by following the CHiLL relation model
-	 // [c1,l1,c2,l2,.....,cn-1,ln-1,cn,ln]
-	 // we need to consider l1,l2,...,ln for transformation
-	 int rl = 2;
-	 eq.update_coef(r.output_var(j), -1);
+				// by following the CHiLL relation model
+				// [c1,l1,c2,l2,.....,cn-1,ln-1,cn,ln]
+				// we need to consider l1,l2,...,ln for transformation
+				int rl = 2;
+				eq.update_coef(r.output_var(j), -1);
 
-	 std::vector<int> normal = selectedhyperplanes[k].getVector() ;
+				std::vector<int> normal = selectedhyperplanes[k].getVector();
 
-	 for (int ele = 0; ele < normal.size(); ele++, rl += 2) {
+				for (int ele = 0; ele < normal.size(); ele++, rl += 2) {
 
-	 eq.update_coef(r.input_var(rl), normal[ele]);
+					eq.update_coef(r.input_var(rl), normal[ele]);
 
-	 }
-	 k++;
+				}
+				k++;
 
-	 } else { // at auxiliary loop levels
+			} else { // at auxiliary loop levels
 
-	 eq.update_coef(r.input_var(j), 1);
-	 eq.update_coef(r.output_var(j), -1);
+				eq.update_coef(r.input_var(j), 1);
+				eq.update_coef(r.output_var(j), -1);
 
-	 }
+			}
 
-	 }
+		}
+
+		std::cout << std::endl;
+		stmt[i].xform.print();  // original reltion
+		stmt[i].xform = Composition(r, stmt[i].xform);
+		stmt[i].xform.simplify();
+		stmt[i].xform.print();  // altered relation
+
+	}
+
+	//update the dependency graph before applying tiling to the transformed iteration space
+
+	for (int i = 0; i < dep.vertex.size(); i++) {
+
+		for (DependenceGraph::EdgeList::iterator j =
+				dep.vertex[i].second.begin(); j != dep.vertex[i].second.end();
+				j++) {
+
+			std::vector<DependenceVector> dvs = j->second;
+
+			for (int k = 0; k < dvs.size(); k++) {
+
+				long long dpdncy = 0;
+				coef_t lb ;
+
+				for (int it = 0; it < selectedhyperplanes.size(); it++) {
+
+					dpdncy = (*depVectors)[k].depVector.dotProduct_v2(
+							selectedhyperplanes[it]);
+
+					lb = dpdncy ;
+
+					dvs[k].lbounds[it] = lb;
+					dvs[k].ubounds[it] = lb;
+				}
+
+			}
+
+			j->second = dvs ;
+		}
 
 
-	 std::cout << std::endl ;
-	 stmt[i].xform.print() ;
-	 stmt[i].xform = Composition(r, stmt[i].xform);
-	 stmt[i].xform.simplify();
-	 stmt[i].xform.print() ;
+	}
 
-	 }
 
-	//update the dependency graph before
-	/*for (int i = 0; i < dep.vertex.size(); i++) {
+	// print the new dependencies
+	for (int i = 0; i < dep.vertex.size(); i++) {
 
-	 for (DependenceGraph::EdgeList::iterator j =
-	 dep.vertex[i].second.begin(); j != dep.vertex[i].second.end();
-	 j++) {
+			for (DependenceGraph::EdgeList::iterator j =
+					dep.vertex[i].second.begin(); j != dep.vertex[i].second.end();
+					j++) {
 
-	 std::vector<DependenceVector> dvs = j->second;
+				std::vector<DependenceVector> dvs = j->second;
 
-	 for (int k = 0; k < dvs.size(); k++) {
 
-	 for (int z = 0; z < dvs[k].lbounds.size(); z++) {
+				std::cout << " printf the dependecies";
+				for (int k = 0; k < dvs.size(); k++) {
 
-	 long long dpdncy = 0;
+					std::cout << dvs[k].type;
 
-	 for (int it = 0; it < hyperplanes.size(); it++) {
+					std::cout << "dependency=(";
+					for (int z = 0; z < dvs[k].lbounds.size(); z++) {
 
-	 for (int in = 0; in < hyperplanes[it].size(); in++) {
+						omega::coef_t lbound = dvs[k].lbounds[z];
+						omega::coef_t ubound = dvs[k].ubounds[z];
 
-	 dpdncy += hyperplanes[it][in]
-	 * (*depVectors)[z][in];
+						if (lbound == ubound) {
+							std::cout << lbound << " ";
 
-	 }
+						}
 
-	 }
+					}
 
-	 std::cout << dpdncy << " ";
+					std::cout << ")\n";
 
-	 }
+				}
+			}
 
-	 }
-	 }
+		}
 
-	 }  */
+
 
 }
 
@@ -1990,7 +2007,7 @@ std::vector<std::vector<int> > Loop::get_perpendicular_hyperplanes(
 
 void tiling1D(int stmt_num, int level, int tileSize) {
 
-	// error checking
+// error checking
 
 	/* if ( tileSize < 0 )
 	 throw std::invalid_argument("invalid tile size");
@@ -2051,7 +2068,7 @@ void Vector::print() {
 
 std::vector<int> Vector::OrothognalVector() {
 
-	// algorithm to find orthogonal vector is implemented here
+// algorithm to find orthogonal vector is implemented here
 
 	std::vector<int> orthovector;
 
@@ -2103,6 +2120,26 @@ float Vector::dotProduct(Vector v) {
 		}
 
 		return dotprd / v.euclidianDistance();
+
+	}
+
+}
+
+int Vector::dotProduct_v2(Vector v) {
+
+	if (v.dimension() != this->dimension())
+		return -4500;
+	else {
+
+		float dotprd = 0;
+		std::vector<int> v_2 = v.getVector();
+
+		for (int i = 0; i < this->dimension(); i++) {
+
+			dotprd += v_2[i] * vec[i];
+		}
+
+		return dotprd;
 
 	}
 
