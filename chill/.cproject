@@ -28,7 +28,7 @@
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF;org.eclipse.cdt.core.GNU_ELF" id="org.eclipse.cdt.build.core.prefbase.toolchain.1544239021.874894479" name=""/>
 							<builder arguments="-j4" command="make" id="org.eclipse.cdt.build.core.settings.default.builder.1149296946" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="org.eclipse.cdt.build.core.settings.default.builder"/>
 							<tool id="org.eclipse.cdt.build.core.settings.holder.libs.924293353" name="holder for library settings" superClass="org.eclipse.cdt.build.core.settings.holder.libs">
-								<option id="org.eclipse.cdt.build.core.settings.holder.libpaths.230207138" name="Library Paths" superClass="org.eclipse.cdt.build.core.settings.holder.libpaths" valueType="libPaths"/>
+								<option id="org.eclipse.cdt.build.core.settings.holder.libpaths.230207138" name="Library Paths" superClass="org.eclipse.cdt.build.core.settings.holder.libpaths"/>
 								<option id="org.eclipse.cdt.build.core.settings.holder.libfiles.23973413" name="Library Files" superClass="org.eclipse.cdt.build.core.settings.holder.libfiles" valueType="libFiles">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="/usr/lib"/>
 								</option>
@@ -40,7 +40,9 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1271960192" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/include/c++/4.4"/>
 								</option>
-								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.1443881751" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" valueType="definedSymbols"/>
+								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.1443881751" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="__cplusplus=201103L"/>
+								</option>
 								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.452347380" languageId="org.eclipse.cdt.core.g++" languageName="GNU C++" sourceContentType="org.eclipse.cdt.core.cxxSource,org.eclipse.cdt.core.cxxHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
 							</tool>
 							<tool id="org.eclipse.cdt.build.core.settings.holder.1659162962" name="GNU C" superClass="org.eclipse.cdt.build.core.settings.holder">

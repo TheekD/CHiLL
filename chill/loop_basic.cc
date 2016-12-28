@@ -1768,7 +1768,9 @@ void Loop::dTile() {
 		}
 	}
 
-	int n = stmt[0].xform.n_out();
+
+
+	/*int n = stmt[0].xform.n_out();
 	omega::Relation r(n, n);
 
 	F_And *root = r.add_and();
@@ -1777,11 +1779,17 @@ void Loop::dTile() {
 
 		EQ_Handle eq = root->add_EQ(); // add a equation
 
-		if (j % 2 == 0) {
+		if (j == 2) {
+
+			eq.update_coef(r.input_var(j), 2);
+			eq.update_coef(r.input_var(j + 2), 1);
+			eq.update_coef(r.output_var(j), -1);
+
+		}
+		if (j == 4) {
 
 			eq.update_coef(r.input_var(j), 1);
-			if (j - 2 > 0)
-				eq.update_coef(r.input_var(j - 2), 1);
+			eq.update_coef(r.input_var(j - 2), 1);
 			eq.update_coef(r.output_var(j), -1);
 
 		}
@@ -1795,12 +1803,14 @@ void Loop::dTile() {
 
 	}
 
+
+	r.print() ;
 	stmt[0].xform = Composition(r, stmt[0].xform);
-	stmt[0].xform.simplify();
+	stmt[0].xform.simplify();  */
 
 	// apply the transformatin using Omega
 
-	/*for (int i = 0; i < stmt.size(); i++) {
+	for (int i = 0; i < stmt.size(); i++) {
 
 	 int n = stmt[i].xform.n_out();
 	 omega::Relation r(n, n);
@@ -1817,13 +1827,13 @@ void Loop::dTile() {
 	 // [c1,l1,c2,l2,.....,cn-1,ln-1,cn,ln]
 	 // we need to consider l1,l2,...,ln for transformation
 	 int rl = 2;
-	 eq.update_coef(r.output_var(j), 1);
+	 eq.update_coef(r.output_var(j), -1);
 
 	 std::vector<int> normal = selectedhyperplanes[k].getVector() ;
 
 	 for (int ele = 0; ele < normal.size(); ele++, rl += 2) {
 
-	 eq.update_coef(r.input_var(rl), -normal[ele]);
+	 eq.update_coef(r.input_var(rl), normal[ele]);
 
 	 }
 	 k++;
@@ -1837,10 +1847,14 @@ void Loop::dTile() {
 
 	 }
 
+
+	 std::cout << std::endl ;
+	 stmt[i].xform.print() ;
 	 stmt[i].xform = Composition(r, stmt[i].xform);
 	 stmt[i].xform.simplify();
+	 stmt[i].xform.print() ;
 
-	 }   */
+	 }
 
 	//update the dependency graph before
 	/*for (int i = 0; i < dep.vertex.size(); i++) {
