@@ -1829,10 +1829,10 @@ void Loop::dTile() {
 		}
 
 		std::cout << std::endl;
-		stmt[i].xform.print();  // original reltion
+	//	stmt[i].xform.print();  // original reltion
 		stmt[i].xform = Composition(r, stmt[i].xform);
 		stmt[i].xform.simplify();
-		stmt[i].xform.print();  // altered relation
+	//	stmt[i].xform.print();  // altered relation
 
 	}
 
@@ -1871,6 +1871,48 @@ void Loop::dTile() {
 	}
 
 
+	// define the time schedule to the omega transformation
+
+
+
+	for (int i = 0; i < stmt.size(); i++) {
+
+		int n = stmt[i].xform.n_out();
+		omega::Relation r(n, n);
+
+		F_And *root = r.add_and();
+		for (int j = 1; j <= n; j++) {  // for each element in the relation
+
+			EQ_Handle eq = root->add_EQ(); // add a equation
+
+			if (j == 2 ) {
+
+
+				eq.update_coef(r.output_var(j), -1);
+
+				for (int ele = 1 ; ele <= n ; ele++) {
+
+					eq.update_coef(r.input_var(ele), 1);
+
+				}
+
+			} else { // at auxiliary loop levels
+
+				eq.update_coef(r.input_var(j), 1);
+				eq.update_coef(r.output_var(j), -1);
+
+			}
+
+		}
+
+
+		stmt[i].xform = Composition(r, stmt[i].xform);
+		stmt[i].xform.simplify();
+		stmt[i].xform.print();  // altered relation
+
+	}
+
+
 	// print the new dependencies
 	for (int i = 0; i < dep.vertex.size(); i++) {
 
@@ -1905,6 +1947,10 @@ void Loop::dTile() {
 			}
 
 		}
+
+
+
+
 
 
 
@@ -2005,16 +2051,6 @@ std::vector<std::vector<int> > Loop::get_perpendicular_hyperplanes(
 	return perpendicular_hyperplanes;
 }
 
-void tiling1D(int stmt_num, int level, int tileSize) {
-
-// error checking
-
-	/* if ( tileSize < 0 )
-	 throw std::invalid_argument("invalid tile size");
-	 if ( stmt_num < 1 && stmt_num > stmt.size()  )
-	 throw std::invalid_argument("invalid statment  ");  */
-
-}
 
 Vector::Vector(std::vector<int> &v) {
 

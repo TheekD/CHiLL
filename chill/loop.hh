@@ -223,7 +223,6 @@ public:
 	// developer : Theekshana Dilshan
 
 	void testFunction();
-	void tiling1D(int stmt_num, int level, int tileSize);
 	void diamondTiling(int stmt_num, const std::set<int> loops,
 			const std::set<int> size);
 	void dTile();
