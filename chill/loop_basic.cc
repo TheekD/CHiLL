@@ -1678,13 +1678,10 @@ void Loop::testFunction() {
 
 void Loop::dTile() {
 
-
-
 	delete last_compute_cgr_;
 	last_compute_cgr_ = NULL;
 	delete last_compute_cg_;
 	last_compute_cg_ = NULL;
-
 
 	// Saves all the direct dependencies in the source code
 	std::vector<hyperPlane> *depVectors;
@@ -1746,7 +1743,6 @@ void Loop::dTile() {
 
 	}
 
-
 	// For any normal hyperplane (h) and with any dependency d
 	// h.d >= 0 has to be satisfied
 	std::vector<int> impossibleNormalDependencies;
@@ -1788,7 +1784,6 @@ void Loop::dTile() {
 		}
 	}
 
-
 	// apply the transformatin using Omega
 
 	for (int i = 0; i < stmt.size(); i++) {
@@ -1820,9 +1815,34 @@ void Loop::dTile() {
 				k++;
 
 			} else { // at auxiliary loop levels
-
 				eq.update_coef(r.input_var(j), 1);
 				eq.update_coef(r.output_var(j), -1);
+
+			}
+
+		}
+
+		omega::Relation schedule(n, n);
+
+		F_And *Scroot = schedule.add_and();
+		for (int j = 1; j <= n; j++) {  // for each element in the relation
+
+			EQ_Handle eq = Scroot->add_EQ(); // add a equation
+
+			if (j == 2) {
+
+				eq.update_coef(schedule.output_var(j), -1);
+
+				for (int ele = 1; ele <= n; ele++) {
+
+					eq.update_coef(schedule.input_var(ele), 1);
+
+				}
+
+			} else { // at auxiliary loop levels
+
+				eq.update_coef(schedule.input_var(j), 1);
+				eq.update_coef(schedule.output_var(j), -1);
 
 			}
 
@@ -1832,7 +1852,10 @@ void Loop::dTile() {
 	//	stmt[i].xform.print();  // original reltion
 		stmt[i].xform = Composition(r, stmt[i].xform);
 		stmt[i].xform.simplify();
-	//	stmt[i].xform.print();  // altered relation
+		stmt[i].xform.print();
+		stmt[i].xform = Composition(schedule	, stmt[i].xform);
+		stmt[i].xform.simplify();
+		stmt[i].xform.print();  // altered relation
 
 	}
 
@@ -1849,14 +1872,14 @@ void Loop::dTile() {
 			for (int k = 0; k < dvs.size(); k++) {
 
 				long long dpdncy = 0;
-				coef_t lb ;
+				coef_t lb;
 
 				for (int it = 0; it < selectedhyperplanes.size(); it++) {
 
 					dpdncy = (*depVectors)[k].depVector.dotProduct_v2(
 							selectedhyperplanes[it]);
 
-					lb = dpdncy ;
+					lb = dpdncy;
 
 					dvs[k].lbounds[it] = lb;
 					dvs[k].ubounds[it] = lb;
@@ -1864,18 +1887,14 @@ void Loop::dTile() {
 
 			}
 
-			j->second = dvs ;
+			j->second = dvs;
 		}
-
 
 	}
 
-
 	// define the time schedule to the omega transformation
 
-
-
-	for (int i = 0; i < stmt.size(); i++) {
+	/*for (int i = 0; i < stmt.size(); i++) {
 
 		int n = stmt[i].xform.n_out();
 		omega::Relation r(n, n);
@@ -1885,12 +1904,11 @@ void Loop::dTile() {
 
 			EQ_Handle eq = root->add_EQ(); // add a equation
 
-			if (j == 2 ) {
-
+			if (j == 2) {
 
 				eq.update_coef(r.output_var(j), -1);
 
-				for (int ele = 1 ; ele <= n ; ele++) {
+				for (int ele = 1; ele <= n; ele++) {
 
 					eq.update_coef(r.input_var(ele), 1);
 
@@ -1905,53 +1923,51 @@ void Loop::dTile() {
 
 		}
 
-
 		stmt[i].xform = Composition(r, stmt[i].xform);
 		stmt[i].xform.simplify();
 		stmt[i].xform.print();  // altered relation
 
-	}
-
+	}  */
 
 	// print the new dependencies
 	for (int i = 0; i < dep.vertex.size(); i++) {
 
-			for (DependenceGraph::EdgeList::iterator j =
-					dep.vertex[i].second.begin(); j != dep.vertex[i].second.end();
-					j++) {
+		for (DependenceGraph::EdgeList::iterator j =
+				dep.vertex[i].second.begin(); j != dep.vertex[i].second.end();
+				j++) {
 
-				std::vector<DependenceVector> dvs = j->second;
+			std::vector<DependenceVector> dvs = j->second;
 
+			std::cout << " printf the dependecies";
+			for (int k = 0; k < dvs.size(); k++) {
 
-				std::cout << " printf the dependecies";
-				for (int k = 0; k < dvs.size(); k++) {
+				std::cout << dvs[k].type;
 
-					std::cout << dvs[k].type;
+				std::cout << "dependency=(";
+				for (int z = 0; z < dvs[k].lbounds.size(); z++) {
 
-					std::cout << "dependency=(";
-					for (int z = 0; z < dvs[k].lbounds.size(); z++) {
+					omega::coef_t lbound = dvs[k].lbounds[z];
+					omega::coef_t ubound = dvs[k].ubounds[z];
 
-						omega::coef_t lbound = dvs[k].lbounds[z];
-						omega::coef_t ubound = dvs[k].ubounds[z];
-
-						if (lbound == ubound) {
-							std::cout << lbound << " ";
-
-						}
+					if (lbound == ubound) {
+						std::cout << lbound << " ";
 
 					}
 
-					std::cout << ")\n";
-
 				}
-			}
 
+				std::cout << ")\n";
+
+			}
 		}
 
+	}
+	//std::cout << "\nafter tiling\n" ;
+	//stmt[0].xform.simplify();
+	//stmt[0].xform.print();
 
-
-
-
+//	tile(0,1,32) ;
+//	tile(0,3,32) ;
 
 
 }
@@ -2050,7 +2066,6 @@ std::vector<std::vector<int> > Loop::get_perpendicular_hyperplanes(
 
 	return perpendicular_hyperplanes;
 }
-
 
 Vector::Vector(std::vector<int> &v) {
 
