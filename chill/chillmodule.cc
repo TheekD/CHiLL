@@ -1747,6 +1747,20 @@ static PyObject* chill_dTile(PyObject* self, PyObject* args){
 
 }
 
+static PyObject* chill_diamond_tile(PyObject* self, PyObject* args){
+
+	 strict_arg_num(args, 2);
+	 std::set<int> tile_sizes;
+	 int stmt = intArg(args,0);
+	 tointset(args,1,tile_sizes);
+	  myloop->diamond_tile(stmt,tile_sizes) ;
+	  Py_RETURN_NONE;
+
+}
+
+
+
+
 static PyObject *
 chill_num_statements(PyObject *self, PyObject *args)  
 {
@@ -1825,6 +1839,7 @@ static PyMethodDef ChillMethods[] = {
   {"num_statements",      chill_num_statements,            METH_VARARGS,     "number of statements in the current loop"},
   { "testFunction" ,      chill_testFunction,              METH_VARARGS, "a sample test function"},
   { "dTile" ,             chill_dTile ,                    METH_VARARGS , "diamondtiling"},
+  { "diamond_tile",       chill_diamond_tile,              METH_VARARGS , "final diamond tile"},
   {NULL, NULL, 0, NULL}
 };
 #endif

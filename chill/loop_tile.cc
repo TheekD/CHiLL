@@ -49,6 +49,24 @@ void Loop::tile(int stmt_num, int level, int tile_size, int outer_level,
   std::set<int> same_tile_controlling_loop = getStatements(lex,
                                                            outer_dim - 1);
   
+  /*
+   * testing 1
+   */
+
+   std::cout << "print lex \n" ;
+   for(int i=0;i< lex.size();i++)
+	    std::cout << lex[i] << " " ;
+
+   std::cout << "\nprint same_tiled_loop\n" ;
+   for(std::set<int>::iterator i= same_tiled_loop.begin() ; i != same_tiled_loop.end() ; i++ )
+	    std::cout << *i << " " ;
+
+   std::cout << "\nprint same_tile_controlling_loop\n" ;
+      for(std::set<int>::iterator i= same_tile_controlling_loop.begin() ; i != same_tile_controlling_loop.end() ; i++ )
+   	    std::cout << *i << " " ;
+
+
+
   for (std::set<int>::iterator i = same_tiled_loop.begin();
        i != same_tiled_loop.end(); i++) {
     for (DependenceGraph::EdgeList::iterator j =
@@ -58,12 +76,39 @@ void Loop::tile(int stmt_num, int level, int tile_size, int outer_level,
         for (int k = 0; k < j->second.size(); k++) {
           DependenceVector dv = j->second[k];
           int dim2 = level - 1;
+
+
+          std::cout << "\n print dim2 : " << dim2 << "\n" ;
+
+          /*
+           * testing 2
+           *
+           */
+          std::cout << "\nprint dependency type:" ;
+          std::cout << dv.type << "\n" ;
+
+          std::cout << "print lbound and ubound\n" ;
+
+          for(int abc = 0 ; abc < dv.lbounds.size() ; abc++ )
+        	   std::cout << dv.lbounds[abc] << " " ;
+
+          std::cout << "\n";
+          for(int abc = 0 ; abc < dv.ubounds.size() ; abc++ )
+                  	   std::cout << dv.ubounds[abc] << " " ;
+
+
           if ((dv.type != DEP_CONTROL) && (dv.type != DEP_UNKNOWN)) {
+
+        	  std::cout << "\n print payloads\n";
+
             while (stmt[*i].loop_level[dim2].type == LoopLevelTile) {
               dim2 = stmt[*i].loop_level[dim2].payload - 1;
+              std::cout << dim2 << " " ;
             }
             dim2 = stmt[*i].loop_level[dim2].payload;
             
+
+
             if (dv.hasNegative(dim2) && (!dv.quasi)) {
               for (int l = outer_level; l < level; l++)
                 if (stmt[*i].loop_level[l - 1].type
@@ -118,7 +163,13 @@ void Loop::tile(int stmt_num, int level, int tile_size, int outer_level,
         h.update_coef(r.output_var(j + 2), -1);
       }
       
+      std::cout << "\n print the relation\n";
+      r.print();
       stmt[*i].xform = Composition(copy(r), stmt[*i].xform);
+
+      std::cout << "\n print the xform\n" ;
+      stmt[*i].xform.print();
+
     }
   }
   // normal tiling
@@ -177,10 +228,17 @@ void Loop::tile(int stmt_num, int level, int tile_size, int outer_level,
       
       hull = SimpleHull(r_list);
       // hull = Hull(r_list, std::vector<bool>(r_list.size(), true), 1, true);
+
+      std::cout <<"\n print the hull\n";
+      hull.print();
     }
     
     // extract the bound of the dimension to be tiled
     Relation bound = get_loop_bound(hull, dim);
+
+    std::cout << "\n print the bound\n";
+    bound.print();
+
     if (!bound.has_single_conjunct()) {
       // further simplify the bound
       hull = Approximate(hull);
@@ -198,11 +256,15 @@ void Loop::tile(int stmt_num, int level, int tile_size, int outer_level,
     }
     
     // separate lower and upper bounds
+
+    std::cout << "\n print the lower and upper bounds\n" ;
+
     std::vector<GEQ_Handle> lb_list, ub_list;
     {
       Conjunct *c = bound.query_DNF()->single_conjunct();
       for (GEQ_Iterator gi(c->GEQs()); gi; gi++) {
         int coef = (*gi).get_coef(bound.set_var(dim + 1));
+        std::cout << coef << " " ;
         if (coef < 0)
           ub_list.push_back(*gi);
         else if (coef > 0)
@@ -339,7 +401,16 @@ void Loop::tile(int stmt_num, int level, int tile_size, int outer_level,
       h.update_coef(r.output_var(outer_dim), 1);
       h.update_const(-lex[outer_dim - 1]);
       
+      std::cout << "\n print the tiled relation\n";
+      r.print();
+
       stmt[*i].xform = Composition(r, stmt[*i].xform);
+
+      std::cout << "\n print the xform \n" ;
+
+      stmt[*i].xform.print();
+
+
     }
     
     // add tiling constraints.
@@ -359,6 +430,7 @@ void Loop::tile(int stmt_num, int level, int tile_size, int outer_level,
           EQ_Handle h = f_root->add_EQ();
           h.update_coef(lb, 1);
           for (Constr_Vars_Iter ci(lb_list[simplest_lb]); ci; ci++) {
+        	std::cout << "coef==1 var (*c).coef : " << (*ci).coef << " " ;
             switch ((*ci).var->kind()) {
             case Input_Var: {
               int pos = (*ci).var->get_position();
@@ -387,6 +459,8 @@ void Loop::tile(int stmt_num, int level, int tile_size, int outer_level,
           GEQ_Handle h1 = f_root->add_GEQ();
           GEQ_Handle h2 = f_root->add_GEQ();
           for (Constr_Vars_Iter ci(lb_list[simplest_lb]); ci; ci++) {
+
+        	 std::cout << "coef!=1 var (*c).coef : " << (*ci).coef << " " ;
             switch ((*ci).var->kind()) {
             case Input_Var: {
               int pos = (*ci).var->get_position();
@@ -462,6 +536,7 @@ void Loop::tile(int stmt_num, int level, int tile_size, int outer_level,
           EQ_Handle h = f_root->add_EQ();
           h.update_coef(ub, -1);
           for (Constr_Vars_Iter ci(ub_list[simplest_ub]); ci; ci++) {
+        	 std::cout << "ub -> coef==1 var (*c).coef : " << (*ci).coef << " " ;
             switch ((*ci).var->kind()) {
             case Input_Var: {
               int pos = (*ci).var->get_position();
@@ -490,6 +565,8 @@ void Loop::tile(int stmt_num, int level, int tile_size, int outer_level,
           GEQ_Handle h1 = f_root->add_GEQ();
           GEQ_Handle h2 = f_root->add_GEQ();
           for (Constr_Vars_Iter ci(ub_list[simplest_ub]); ci; ci++) {
+
+        	  std::cout << "ub ->coef!=1 var (*c).coef : " << (*ci).coef << " " ;
             switch ((*ci).var->kind()) {
             case Input_Var: {
               int pos = (*ci).var->get_position();
@@ -599,6 +676,12 @@ void Loop::tile(int stmt_num, int level, int tile_size, int outer_level,
           h2.update_coef(aligned_lb, 1);
         }
       }
+
+      std::cout << "\nprint the final relatin of the xform\n";
+      stmt[*i].xform.simplify();
+      stmt[*i].xform.print();
+
+
     }
   }
   

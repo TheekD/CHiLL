@@ -15,13 +15,12 @@
 
 using namespace omega;
 
+void Loop::diamond_tile(int stmt_num , const std::set<int> tile_sizes){
 
 
-void diamondTiling( int stmt_num , const std::set<int> loops , const std::set<int> size ) {
-
+   std::cout << "okay";
 
 }
-
 
 
 
