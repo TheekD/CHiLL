@@ -1750,9 +1750,9 @@ static PyObject* chill_dTile(PyObject* self, PyObject* args){
 static PyObject* chill_diamond_tile(PyObject* self, PyObject* args){
 
 	 strict_arg_num(args, 2);
-	 std::set<int> tile_sizes;
+	 std::vector<int> tile_sizes;
 	 int stmt = intArg(args,0);
-	 tointset(args,1,tile_sizes);
+	 tointvector(args,1,tile_sizes);
 	  myloop->diamond_tile(stmt,tile_sizes) ;
 	  Py_RETURN_NONE;
 

@@ -1541,7 +1541,7 @@ void Loop::distribute(const std::set<int> &stmt_nums, int level) {
 
  */
 
-void Loop::diamond_tile(int stmt_num, const std::set<int> tile_sizes) {
+void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 
 	// check the validity of function arguments
 
@@ -1553,9 +1553,8 @@ void Loop::diamond_tile(int stmt_num, const std::set<int> tile_sizes) {
 				"invalid number of tiles " + to_string(tile_sizes.size()));
 
 	// check the individual tile size in the set
-	for (std::set<int>::iterator i = tile_sizes.begin(); i != tile_sizes.end();
-			i++)
-		if (*i < 0)
+	for (int i = 0; i < tile_sizes.size(); i++)
+		if (tile_sizes[i] < 0)
 			throw std::invalid_argument("invalid tile size");
 
 	// extract the dependency in the program stmt_num
@@ -1597,7 +1596,7 @@ void Loop::diamond_tile(int stmt_num, const std::set<int> tile_sizes) {
 		}
 	}
 
-	// Find the normal of the hyperplanes
+	// Find the normal of the hyperplanes  h.d >= 0
 
 	std::vector<Vector> validNormalHyperplanes;
 
@@ -1640,18 +1639,11 @@ void Loop::diamond_tile(int stmt_num, const std::set<int> tile_sizes) {
 
 	}
 
-
-	std::vector<int> tileSizes( tile_sizes.begin(),tile_sizes.end() );
-
-
-
 	// define the tiling transformation using Omega
 
 	int n = stmt[stmt_num].xform.n_out();
 
 	omega::Relation r(n, 2 * n - 1);
-
-	Relation xform_temp = stmt[stmt_num].xform;
 
 	F_And *root = r.add_and();
 
@@ -1690,18 +1682,18 @@ void Loop::diamond_tile(int stmt_num, const std::set<int> tile_sizes) {
 
 		GEQ_Handle geq2 = AndRel->add_GEQ();
 		geq2.update_coef(e, -1);
-		geq1.update_const(tileSizes[i/2-1]-1);
+		geq1.update_const(tile_sizes[i / 2 - 1] - 1);
 
 		EQ_Handle eq = AndRel->add_EQ();
-		eq.update_coef(r.output_var(i), tileSizes[i/2-1]);
+		eq.update_coef(r.output_var(i), tile_sizes[i / 2 - 1]);
 		eq.update_coef(e, 1);
 
 		// extract the selected hyperplanes
-		std::vector<int> normal = validNormalHyperplanes[i/2-1].getVector();
+		std::vector<int> normal = validNormalHyperplanes[i / 2 - 1].getVector();
 
 		for (int j = 2; j < n; j += 2) {
 
-			eq.update_coef(r.input_var(j), -normal[j/2-1] );
+			eq.update_coef(r.input_var(j), -normal[j / 2 - 1]);
 
 		}
 
@@ -1709,45 +1701,32 @@ void Loop::diamond_tile(int stmt_num, const std::set<int> tile_sizes) {
 
 	r.print();
 
-	/*
+	omega::Relation sch(2 * n - 1, 2 * n - 1);
+	F_And *sch_root = sch.add_and();
 
-	 F_Exists *exist = root->add_exists();
-	 Variable_ID e = exist->declare();
+	for (int i = 1; i < 2 * n; i++) {
 
-	 F_And *AndRel = exist->add_and();
+		if (i != 2) {
 
-	 GEQ_Handle geq1 = AndRel->add_GEQ();
-	 geq1.update_coef(e, 1);
+			EQ_Handle eq = sch_root->add_EQ();
+			eq.update_coef(sch.input_var(i), -1);
+			eq.update_coef(sch.output_var(i), 1);
 
-	 GEQ_Handle geq2 = AndRel->add_GEQ();
-	 geq2.update_coef(e, -1);
-	 geq1.update_const(31);
+		}
 
-	 EQ_Handle eq = AndRel->add_EQ();
-	 eq.update_coef(r.output_var(2), 32);
-	 eq.update_coef(e, 1);
-	 eq.update_coef(r.input_var(2), -2);
-	 eq.update_coef(r.input_var(4), 1);
+	}
 
-	 Variable_ID e2 = exist->declare();
+	EQ_Handle schEQ = sch_root->add_EQ();
+	schEQ.update_coef(sch.output_var(2), 1);
+	for (int i = 2; i < n; i += 2) {
 
+		schEQ.update_coef(sch.input_var(i), -1);
 
-	 GEQ_Handle geqi = AndRel->add_GEQ();
-	 geqi.update_coef(e2, 1);
-
-	 GEQ_Handle geqii = AndRel->add_GEQ();
-	 geqii.update_coef(e2, -1);
-	 geqii.update_const(31);
-
-	 EQ_Handle eq2 = AndRel->add_EQ();
-	 eq2.update_coef(r.output_var(4), 32);
-	 eq2.update_coef(e2, 1);
-	 eq2.update_coef(r.input_var(2), -2);
-	 eq2.update_coef(r.input_var(4), -1);
-
-	 r.print();  */
+	}
 
 	stmt[stmt_num].xform = Composition(r, stmt[stmt_num].xform);
+	stmt[stmt_num].xform = Composition(sch, stmt[stmt_num].xform);
+
 	stmt[stmt_num].xform.simplify();
 	stmt[stmt_num].xform.print();
 

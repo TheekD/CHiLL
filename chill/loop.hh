@@ -226,7 +226,7 @@ public:
 	void diamondTiling(int stmt_num, const std::set<int> loops,
 			const std::set<int> size);
 	void dTile();
-	void diamond_tile(int stmt, const std::set<int> tile_sizes);
+	void diamond_tile(int stmt, const std::vector<int> tile_sizes);
 
 
 	omega::Relation tiledRelation(omega::Relation , omega::Relation , omega::Relation &);
