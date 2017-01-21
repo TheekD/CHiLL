@@ -17,6 +17,8 @@
 #define PI 3.14159265
 
 class IR_Code;
+class Vector;
+class hyperPlane;
 
 enum TilingMethodType {
 	StridedTile, CountedTile
@@ -228,6 +230,10 @@ public:
 	void dTile();
 	void diamond_tile(int stmt, const std::vector<int> tile_sizes);
 
+	std::vector<hyperPlane> getDependencies(int stmt_num);
+	std::vector<Vector> selectHyperplanes(std::vector<hyperPlane> );
+
+
 
 	omega::Relation tiledRelation(omega::Relation , omega::Relation , omega::Relation &);
 
@@ -253,7 +259,7 @@ public:
 
 	void addElements(int xi);
 
-	void setVector(std::vector<int> v) ;
+	bool setVector(std::vector<int> v) ;
 
 	std::vector<int> getVector() ;
 

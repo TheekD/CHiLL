@@ -1534,6 +1534,96 @@ void Loop::distribute(const std::set<int> &stmt_nums, int level) {
 	return;
 }
 
+// extract the dependencies of a program
+
+std::vector<hyperPlane> Loop::getDependencies(int stmt_num) {
+
+	// invalidate saved codegen computation
+	delete last_compute_cgr_;
+	last_compute_cgr_ = NULL;
+	delete last_compute_cg_;
+	last_compute_cg_ = NULL;
+
+	std::vector<hyperPlane> dependencyVectors;
+
+	for (DependenceGraph::EdgeList::iterator j =
+			dep.vertex[stmt_num].second.begin();
+			j != dep.vertex[stmt_num].second.end(); j++) {
+
+		std::vector<DependenceVector> dvs = j->second;
+
+		for (int k = 0; k < dvs.size(); k++) {
+
+			// Programs with constant dependency distances
+
+			if (dvs[k].type == DEP_W2R) {
+
+				std::vector<int> depvector;
+
+				for (int z = 0; z < dvs[k].lbounds.size(); z++) {
+
+					omega::coef_t lbound = dvs[k].lbounds[z];
+					omega::coef_t ubound = dvs[k].ubounds[z];
+
+					//	std::cout << "\n" << lbound << " " << ubound << "\n";
+					if (lbound == ubound) {
+						depvector.push_back(lbound);
+					}
+
+				}
+
+				// create a new hyperplane object and add the vector
+				hyperPlane hyperplane;
+				if (depvector.size() == num_dep_dim
+						&& hyperplane.depVector.setVector(depvector)) {
+					//	hyperplane.depVector.print();
+					dependencyVectors.push_back(hyperplane);
+
+				}
+
+			}
+
+		}
+	}
+
+	return dependencyVectors;
+
+}
+
+std::vector<Vector> Loop::selectHyperplanes(
+		std::vector<hyperPlane> dependencies) {
+
+	std::vector<Vector> validNormalHyperplanes;
+
+	for (int i = 0; i < dependencies.size(); i++) {
+
+		Vector normal;
+		normal.setVector(dependencies[i].depVector.OrothognalVector());
+
+		bool selected = true;
+
+		for (int j = 0; j < dependencies.size(); j++) {
+
+			if (dependencies[j].depVector.dotProduct(normal) < 0) {
+
+				selected = false;
+				break;
+			}
+
+		}
+
+		if (selected) {
+
+			validNormalHyperplanes.push_back(normal);
+
+		}
+
+	}
+
+	return validNormalHyperplanes;
+
+}
+
 /*
 
  Developer : Theekshana Dilshan
@@ -1557,10 +1647,15 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 		if (tile_sizes[i] < 0)
 			throw std::invalid_argument("invalid tile size");
 
+	// invalidate saved codegen computation
+	delete last_compute_cgr_;
+	last_compute_cgr_ = NULL;
+	delete last_compute_cg_;
+	last_compute_cg_ = NULL;
+
 	// extract the dependency in the program stmt_num
 
 	std::vector<hyperPlane> dependencyVectors;
-
 	for (DependenceGraph::EdgeList::iterator j =
 			dep.vertex[stmt_num].second.begin();
 			j != dep.vertex[stmt_num].second.end(); j++) {
@@ -1699,7 +1794,7 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 
 	}
 
-	r.print();
+	// tiling schedule
 
 	omega::Relation sch(2 * n - 1, 2 * n - 1);
 	F_And *sch_root = sch.add_and();
@@ -1724,86 +1819,241 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 
 	}
 
+	// composition of relations
 	stmt[stmt_num].xform = Composition(r, stmt[stmt_num].xform);
 	stmt[stmt_num].xform = Composition(sch, stmt[stmt_num].xform);
 
 	stmt[stmt_num].xform.simplify();
 	stmt[stmt_num].xform.print();
 
-	/*	for (DependenceGraph::EdgeList::iterator j =
-	 dep.vertex[stmt_num].second.begin(); j != dep.vertex[stmt_num].second.end();
-	 j++) {
+	//stmt[stmt_num].code = getCode(2);
 
-	 std::vector<DependenceVector> dvs = j->second;
+	// update the new dependencies
 
-	 for (int k = 0; k < dvs.size(); k++) {
+	for (DependenceGraph::EdgeList::iterator j =
+			dep.vertex[stmt_num].second.begin();
+			j != dep.vertex[stmt_num].second.end(); j++) {
 
-	 long long dpdncy = 0;
-	 coef_t lb;
+		std::vector<DependenceVector> dvs = j->second;
 
-	 for (int it = 0; it < validNormalHyperplanes.size(); it++) {
+		for (int k = 0; k < dvs.size(); k++) {
 
-	 dpdncy = dependencyVectors[k].depVector.dotProduct_v2(
-	 validNormalHyperplanes[it]);
+			coef_t lb;
 
-	 lb = dpdncy;
+			for (int it = 0; it < validNormalHyperplanes.size(); it++) {
 
-	 dvs[k].lbounds[it] = lb;
-	 dvs[k].ubounds[it] = lb;
-	 }
+				lb = dependencyVectors[k].depVector.dotProduct_v2(
+						validNormalHyperplanes[it]);
 
-	 }
+				std::cout << lb;
 
-	 j->second = dvs;
-	 } */
+				dvs[k].lbounds[it] = lb;
+				dvs[k].ubounds[it] = lb;
+			}
+
+			std::cout << std::endl;
+
+		}
+
+		j->second = dvs;
+	}
 
 }
 
 void Loop::testFunction() {
 
-	// tile the external loop
+	int stmt_num = 0 ;
+	std::vector<hyperPlane> x = getDependencies(stmt_num);
+	std::vector<Vector> y = selectHyperplanes(x);
 
-	omega::Relation r(5, 7);
+
+
+
+	std::vector<int> tile_sizes ;
+	tile_sizes.push_back(32);
+	tile_sizes.push_back(32);
+	tile_sizes.push_back(32);
+
+
+	if (y.size() > num_dep_dim) {
+
+		//find the efficient
+
+	}
+
+	// if only a dependeny exist we chose to set diamond tiling to time iteration and 1st data dimension
+	if (y.size() == 1) {
+
+		Vector normal;
+		normal.setVector(y[0].OrothognalVector());
+		y.push_back(normal);
+
+	}
+
+
+	for(int i = 0 ; i < y.size() ; i++)
+		y[i].print();
+
+	int n = stmt[stmt_num].xform.n_out();
+	int dimensions = y.size();
+
+	omega::Relation r(n, n + 2 * dimensions);
 
 	F_And *root = r.add_and();
 
-	EQ_Handle eq0 = root->add_EQ();
-	eq0.update_coef(r.output_var(1), 1);
-
-	for (int i = 1; i <= 5; i++) {
+	for (int i = 1; i <= n; i++) {
 
 		EQ_Handle eq = root->add_EQ();
-		eq.update_coef(r.output_var(i + 2), -1);
+		eq.update_coef(r.output_var(2 * dimensions + i), -1);
 		eq.update_coef(r.input_var(i), 1);
+
+	}
+
+	for (int i = 1; i < 2 * dimensions; i += 2) {
+
+		EQ_Handle eq = root->add_EQ();
+		eq.update_coef(r.output_var(i), 1);
 	}
 
 	F_Exists *exist = root->add_exists();
+	F_And *AndRel = exist->add_and();
 
-	Variable_ID t1 = exist->declare("t1");
-	F_And *EAnd = exist->add_and();
+	for (int i = 2; i <= 2*dimensions ; i += 2) {
 
-	EQ_Handle Eeq1 = EAnd->add_EQ();
-	Eeq1.update_coef(t1, -4);
-	Eeq1.update_coef(r.output_var(2), 1);
+		Variable_ID e = exist->declare();
 
-	GEQ_Handle Egeq1 = EAnd->add_GEQ();
-	Egeq1.update_coef(t1, 1);
+		GEQ_Handle geq1 = AndRel->add_GEQ();
+		geq1.update_coef(e, 1);
 
-	GEQ_Handle Egeq2 = EAnd->add_GEQ();
-	Egeq2.update_coef(r.output_var(4), 1);
-	Egeq2.update_coef(r.output_var(2), -1);
+		GEQ_Handle geq2 = AndRel->add_GEQ();
+		geq2.update_coef(e, -1);
+		geq1.update_const(tile_sizes[i / 2 - 1] - 1);
 
-	GEQ_Handle Egeq3 = EAnd->add_GEQ();
-	Egeq3.update_coef(r.output_var(4), -1);
-	Egeq3.update_coef(r.output_var(2), 1);
-	Egeq3.update_const(3);
+		EQ_Handle eq = AndRel->add_EQ();
+		eq.update_coef(r.output_var(i), tile_sizes[i / 2 - 1]);
+		eq.update_coef(e, 1);
 
-	stmt[0].xform.print();
-	stmt[0].xform = Composition(r, stmt[0].xform);
-	stmt[0].xform.simplify();
-	stmt[0].xform.print();
+		// extract the selected hyperplanes
+		std::vector<int> normal = y[i / 2 - 1].getVector();
 
-//	std::vector < std::vector<int> > *depVectors;
+		for (int j = 2; j < n; j += 2) {
+
+			eq.update_coef(r.input_var(j), -normal[j / 2 - 1]);
+
+		}
+
+	}
+
+
+	// tiling schedule
+
+	omega::Relation sch(n + 2*dimensions, n + 2*dimensions);
+	F_And *sch_root = sch.add_and();
+
+	for (int i = 1; i <= n +  2 * dimensions; i++) {
+
+		if (i != 2) {
+
+			EQ_Handle eq = sch_root->add_EQ();
+			eq.update_coef(sch.input_var(i), -1);
+			eq.update_coef(sch.output_var(i), 1);
+
+		}
+
+	}
+
+	EQ_Handle schEQ = sch_root->add_EQ();
+	schEQ.update_coef(sch.output_var(2), 1);
+	for (int i = 2; i <= 2*dimensions; i += 2) {
+
+		schEQ.update_coef(sch.input_var(i), -1);
+
+	}
+
+	// composition of relations
+	r.simplify();
+	r.print();
+
+	stmt[stmt_num].xform = Composition(r, stmt[stmt_num].xform);
+	stmt[stmt_num].xform = Composition(sch, stmt[stmt_num].xform);
+
+	stmt[stmt_num].xform.simplify();
+	stmt[stmt_num].xform.print();
+
+	/*Relation is = stmt[0].IS;
+
+	 is.print();
+
+	 for (DNF_Iterator di(is.query_DNF()); di; di++) {
+
+	 std::cout << "In the conjuct \n";
+	 for (EQ_Iterator ei = (*di)->EQs(); ei; ei++) {
+
+	 std::cout << "in the next equlaity constraint\n";
+	 for (Constr_Vars_Iter cvi(*ei); cvi; cvi++) {
+
+	 std::cout << (*cvi).var->char_name() << " " << (*cvi).coef
+	 << " " << "\n";
+
+	 }
+
+	 }
+
+	 for (GEQ_Iterator gi = (*di)->GEQs(); gi; gi++) {
+
+	 std::cout << "in the next equlaity constraint\n";
+	 for (Constr_Vars_Iter cvi(*gi); cvi; cvi++) {
+	 std::cout << (*cvi).var->char_name() << " " << (*cvi).coef
+	 << " " << (*cvi).var->kind() << "\n";
+
+	 }
+
+	 }
+
+	 }  */
+
+	// tile the external loop
+	/*omega::Relation r(5, 7);
+
+	 F_And *root = r.add_and();
+
+	 EQ_Handle eq0 = root->add_EQ();
+	 eq0.update_coef(r.output_var(1), 1);
+
+	 for (int i = 1; i <= 5; i++) {
+
+	 EQ_Handle eq = root->add_EQ();
+	 eq.update_coef(r.output_var(i + 2), -1);
+	 eq.update_coef(r.input_var(i), 1);
+	 }
+
+	 F_Exists *exist = root->add_exists();
+
+	 Variable_ID t1 = exist->declare("t1");
+	 F_And *EAnd = exist->add_and();
+
+	 EQ_Handle Eeq1 = EAnd->add_EQ();
+	 Eeq1.update_coef(t1, -4);
+	 Eeq1.update_coef(r.output_var(2), 1);
+
+	 GEQ_Handle Egeq1 = EAnd->add_GEQ();
+	 Egeq1.update_coef(t1, 1);
+
+	 GEQ_Handle Egeq2 = EAnd->add_GEQ();
+	 Egeq2.update_coef(r.output_var(4), 1);
+	 Egeq2.update_coef(r.output_var(2), -1);
+
+	 GEQ_Handle Egeq3 = EAnd->add_GEQ();
+	 Egeq3.update_coef(r.output_var(4), -1);
+	 Egeq3.update_coef(r.output_var(2), 1);
+	 Egeq3.update_const(3);
+
+	 stmt[0].xform.print();
+	 stmt[0].xform = Composition(r, stmt[0].xform);
+	 stmt[0].xform.simplify();
+	 stmt[0].xform.print();
+
+	 //	std::vector < std::vector<int> > *depVectors;  */
 
 	/*for (int i = 0; i < dep.vertex.size(); i++) {
 
@@ -2071,7 +2321,7 @@ void Loop::dTile() {
 				(*depVectors)[i].depVector.OrothognalVector());
 		(*depVectors)[i].orthoVector.print();
 
-		//	(*depVectors)[i].printOrtho();
+//	(*depVectors)[i].printOrtho();
 
 	}
 
@@ -2089,7 +2339,7 @@ void Loop::dTile() {
 
 		}
 
-		//	(*depVectors)[i].printOrtho();
+//	(*depVectors)[i].printOrtho();
 
 	}
 
@@ -2190,7 +2440,7 @@ void Loop::dTile() {
 		}
 
 		std::cout << std::endl;
-		//	omega::Relation f = tiledRelation(schedule, r, stmt[i].xform);
+//	omega::Relation f = tiledRelation(schedule, r, stmt[i].xform);
 		schedule.print();
 
 		std::cout << std::endl;
@@ -2419,9 +2669,20 @@ void Vector::addElements(int xi) {
 
 }
 
-void Vector::setVector(std::vector<int> v) {
+bool Vector::setVector(std::vector<int> v) {
 
-	vec = v;
+	int zeros = 0;
+	for (int i = 0; i < v.size(); i++)
+		if (v[i] == 0)
+			zeros++;
+
+	if (zeros == v.size())
+		return false;
+	else {
+
+		vec = v;
+		return true;
+	}
 
 }
 
