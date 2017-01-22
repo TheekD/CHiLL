@@ -1576,7 +1576,7 @@ std::vector<hyperPlane> Loop::getDependencies(int stmt_num) {
 				hyperPlane hyperplane;
 				if (depvector.size() == num_dep_dim
 						&& hyperplane.depVector.setVector(depvector)) {
-					//	hyperplane.depVector.print();
+					//hyperplane.depVector.print();
 					dependencyVectors.push_back(hyperplane);
 
 				}
@@ -1598,7 +1598,14 @@ std::vector<Vector> Loop::selectHyperplanes(
 	for (int i = 0; i < dependencies.size(); i++) {
 
 		Vector normal;
-		normal.setVector(dependencies[i].depVector.OrothognalVector());
+		//normal.setVector(dependencies[i].depVector.OrothognalVector());
+		normal.setVector( orthogonalVector(dependencies[i].depVector.getVector() )  );
+
+		std::cout << "dependency:";
+		dependencies[i].depVector.print();
+		std::cout << " normal vector:";
+		normal.print();
+		std::cout << "\n";
 
 		bool selected = true;
 
@@ -1621,6 +1628,51 @@ std::vector<Vector> Loop::selectHyperplanes(
 	}
 
 	return validNormalHyperplanes;
+
+}
+
+std::vector<int> Loop::orthogonalVector(std::vector<int> vec) {
+
+	std::vector<int> orthovector;
+
+	int size = vec.size();
+
+	int lastele = vec[size - 1];
+
+	if (lastele != 0) {
+
+		for (int i = 0; i < size; i++) {
+
+			int t = lastele;
+			if (i == size - 1) {
+
+				t = 0;
+				for (int j = 0; j < size - 1; j++)
+					t += -vec[j];
+
+			}
+
+			t = lastele > 0 ? t : -t;
+			orthovector.push_back(t);
+		}
+
+	} else {
+
+		if (size != 2) {
+			std::vector<int> lowv(vec.begin(), vec.end() - 1);
+			orthovector = orthogonalVector(lowv);
+			orthovector.push_back(0);
+
+		} else {
+
+			orthovector.push_back(0);
+			orthovector.push_back(vec[size - 2]);
+
+		}
+
+	}
+
+	return orthovector;
 
 }
 
@@ -1862,18 +1914,14 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 
 void Loop::testFunction() {
 
-	int stmt_num = 0 ;
+	int stmt_num = 0;
 	std::vector<hyperPlane> x = getDependencies(stmt_num);
 	std::vector<Vector> y = selectHyperplanes(x);
 
-
-
-
-	std::vector<int> tile_sizes ;
+	std::vector<int> tile_sizes;
 	tile_sizes.push_back(32);
 	tile_sizes.push_back(32);
 	tile_sizes.push_back(32);
-
 
 	if (y.size() > num_dep_dim) {
 
@@ -1890,11 +1938,10 @@ void Loop::testFunction() {
 
 	}
 
+  for(int i = 0 ; i < y.size() ; i++)
+	y[i].print();
 
-	for(int i = 0 ; i < y.size() ; i++)
-		y[i].print();
-
-	int n = stmt[stmt_num].xform.n_out();
+	/*int n = stmt[stmt_num].xform.n_out();
 	int dimensions = y.size();
 
 	omega::Relation r(n, n + 2 * dimensions);
@@ -1918,7 +1965,7 @@ void Loop::testFunction() {
 	F_Exists *exist = root->add_exists();
 	F_And *AndRel = exist->add_and();
 
-	for (int i = 2; i <= 2*dimensions ; i += 2) {
+	for (int i = 2; i <= 2 * dimensions; i += 2) {
 
 		Variable_ID e = exist->declare();
 
@@ -1944,13 +1991,12 @@ void Loop::testFunction() {
 
 	}
 
-
 	// tiling schedule
 
-	omega::Relation sch(n + 2*dimensions, n + 2*dimensions);
+	omega::Relation sch(n + 2 * dimensions, n + 2 * dimensions);
 	F_And *sch_root = sch.add_and();
 
-	for (int i = 1; i <= n +  2 * dimensions; i++) {
+	for (int i = 1; i <= n + 2 * dimensions; i++) {
 
 		if (i != 2) {
 
@@ -1964,7 +2010,7 @@ void Loop::testFunction() {
 
 	EQ_Handle schEQ = sch_root->add_EQ();
 	schEQ.update_coef(sch.output_var(2), 1);
-	for (int i = 2; i <= 2*dimensions; i += 2) {
+	for (int i = 2; i <= 2 * dimensions; i += 2) {
 
 		schEQ.update_coef(sch.input_var(i), -1);
 
@@ -1978,7 +2024,7 @@ void Loop::testFunction() {
 	stmt[stmt_num].xform = Composition(sch, stmt[stmt_num].xform);
 
 	stmt[stmt_num].xform.simplify();
-	stmt[stmt_num].xform.print();
+	stmt[stmt_num].xform.print();  */
 
 	/*Relation is = stmt[0].IS;
 

@@ -232,6 +232,7 @@ public:
 
 	std::vector<hyperPlane> getDependencies(int stmt_num);
 	std::vector<Vector> selectHyperplanes(std::vector<hyperPlane> );
+	std::vector<int>  orthogonalVector(std::vector<int> ) ;
 
 
 
