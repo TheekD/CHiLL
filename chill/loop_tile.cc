@@ -709,5 +709,15 @@ void Loop::tile(int stmt_num, int level, int tile_size, int outer_level,
     stmt[*i].loop_level.insert(
       stmt[*i].loop_level.begin() + (outer_level - 1), ll);
   }
+
+  std::cout << "\n print the loop levels\n" ;
+    for(int i = 0 ; i < stmt[stmt_num].loop_level.size() ; i++) {
+
+ 	   std::cout << stmt[stmt_num].loop_level[i].type << " " << stmt[stmt_num].loop_level[i].payload << " "   <<  stmt[stmt_num].loop_level[i].parallel_level << "\n";
+
+    }
+
+
+
 }
 

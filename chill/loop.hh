@@ -7,6 +7,8 @@
 #include <vector>
 #include <map>
 #include <set>
+#include<algorithm>
+#include<iterator>
 #include "dep.hh"
 #include "ir_code.hh"
 #include "irtools.hh"
@@ -230,8 +232,8 @@ public:
 	void dTile();
 	void diamond_tile(int stmt, const std::vector<int> tile_sizes);
 
-	std::vector<hyperPlane> getDependencies(int stmt_num);
-	std::vector<Vector> selectHyperplanes(std::vector<hyperPlane> );
+	std::vector<Vector> getDependencies(int stmt_num);
+	std::vector<Vector> selectHyperplanes(std::vector<Vector> );
 	std::vector<int>  orthogonalVector(std::vector<int> ) ;
 
 
@@ -257,23 +259,18 @@ public:
 	Vector(std::vector<int> &v);
 
 	Vector() {};
-
 	void addElements(int xi);
-
 	bool setVector(std::vector<int> v) ;
-
-	std::vector<int> getVector() ;
-
+	std::vector<int> getVector() const;
 	float euclidianDistance() ;
-
-	int dimension() ;
-
+	int dimension() const;
 	void print() ;
-
 	std::vector<int> OrothognalVector() ;
-
 	float dotProduct(Vector v) ;
 	int   dotProduct_v2(Vector v) ;
+	bool operator<(  const Vector &anothervec ) const ;
+	bool operator==(const Vector &anothervec) const ;
+
 
 };
 
@@ -402,5 +399,6 @@ public:
 	}
 
 };
+
 
 #endif

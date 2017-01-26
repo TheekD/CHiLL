@@ -13,6 +13,10 @@
 
 using namespace omega;
 
+bool vector_less(const Vector &vec1, const Vector &vec2);
+bool vector_equal(const Vector &vec1, const Vector &vec2);
+bool contains(std::vector<Vector>, Vector);
+
 void Loop::permute(const std::vector<int> &pi) {
 	std::set<int> active;
 	for (int i = 0; i < stmt.size(); i++)
@@ -1536,15 +1540,9 @@ void Loop::distribute(const std::set<int> &stmt_nums, int level) {
 
 // extract the dependencies of a program
 
-std::vector<hyperPlane> Loop::getDependencies(int stmt_num) {
+std::vector<Vector> Loop::getDependencies(int stmt_num) {
 
-	// invalidate saved codegen computation
-	delete last_compute_cgr_;
-	last_compute_cgr_ = NULL;
-	delete last_compute_cg_;
-	last_compute_cg_ = NULL;
-
-	std::vector<hyperPlane> dependencyVectors;
+	std::vector<Vector> dependencyVectors;
 
 	for (DependenceGraph::EdgeList::iterator j =
 			dep.vertex[stmt_num].second.begin();
@@ -1553,31 +1551,29 @@ std::vector<hyperPlane> Loop::getDependencies(int stmt_num) {
 		std::vector<DependenceVector> dvs = j->second;
 
 		for (int k = 0; k < dvs.size(); k++) {
-
 			// Programs with constant dependency distances
-
-			if (dvs[k].type == DEP_W2R) {
-
+			if (dvs[k].type == DEP_W2R || dvs[k].type == DEP_R2W) {
 				std::vector<int> depvector;
-
 				for (int z = 0; z < dvs[k].lbounds.size(); z++) {
 
 					omega::coef_t lbound = dvs[k].lbounds[z];
 					omega::coef_t ubound = dvs[k].ubounds[z];
-
-					//	std::cout << "\n" << lbound << " " << ubound << "\n";
 					if (lbound == ubound) {
 						depvector.push_back(lbound);
 					}
 
 				}
-
-				// create a new hyperplane object and add the vector
-				hyperPlane hyperplane;
+				/*
+				 * select dependencies with equal dimension as loop dimensions
+				 * ignore the zero vector
+				 * ignore duplicates
+				 */
+				Vector depVector;
 				if (depvector.size() == num_dep_dim
-						&& hyperplane.depVector.setVector(depvector)) {
-					//hyperplane.depVector.print();
-					dependencyVectors.push_back(hyperplane);
+						&& depVector.setVector(depvector)
+						&& !contains(dependencyVectors, depVector)) {
+					depVector.print();
+					dependencyVectors.push_back(depVector);
 
 				}
 
@@ -1585,34 +1581,34 @@ std::vector<hyperPlane> Loop::getDependencies(int stmt_num) {
 
 		}
 	}
-
 	return dependencyVectors;
 
 }
 
-std::vector<Vector> Loop::selectHyperplanes(
-		std::vector<hyperPlane> dependencies) {
+std::vector<Vector> Loop::selectHyperplanes(std::vector<Vector> dependencies) {
 
 	std::vector<Vector> validNormalHyperplanes;
+	std::vector<double> dotProductValues;
 
 	for (int i = 0; i < dependencies.size(); i++) {
 
 		Vector normal;
 		//normal.setVector(dependencies[i].depVector.OrothognalVector());
-		normal.setVector( orthogonalVector(dependencies[i].depVector.getVector() )  );
+		normal.setVector(orthogonalVector(dependencies[i].getVector()));
 
 		std::cout << "dependency:";
-		dependencies[i].depVector.print();
+		dependencies[i].print();
 		std::cout << " normal vector:";
 		normal.print();
 		std::cout << "\n";
 
 		bool selected = true;
 
+		double dotP = 0;
 		for (int j = 0; j < dependencies.size(); j++) {
+			dotP += dependencies[j].dotProduct(normal);
 
-			if (dependencies[j].depVector.dotProduct(normal) < 0) {
-
+			if (dependencies[j].dotProduct(normal) < 0) {
 				selected = false;
 				break;
 			}
@@ -1620,15 +1616,46 @@ std::vector<Vector> Loop::selectHyperplanes(
 		}
 
 		if (selected) {
-
+			dotP += dotP / dependencies.size();
+			dotProductValues.push_back(dotP);
 			validNormalHyperplanes.push_back(normal);
 
 		}
 
 	}
 
-	return validNormalHyperplanes;
+	std::cout << "\n-->eligible vectors:";
+	for (int i = 0; i < validNormalHyperplanes.size(); i++)
+		validNormalHyperplanes[i].print();
 
+	std::cout << "\n";
+	for (int i = 0; i < dotProductValues.size(); i++)
+		std::cout << dotProductValues[i] << " ";
+
+	for (int k = 0; k < dotProductValues.size(); k++) {
+		for (int L = 1; L < dotProductValues.size(); L++) {
+			if (dotProductValues[L - 1] > dotProductValues[L]) {
+				double x = dotProductValues[L - 1];
+				dotProductValues[L - 1] = dotProductValues[L];
+				dotProductValues[L] = x;
+
+				Vector vec = validNormalHyperplanes[L - 1];
+				validNormalHyperplanes[L - 1] = validNormalHyperplanes[L];
+				validNormalHyperplanes[L] = vec;
+			}
+		}
+
+	}
+
+	std::cout << "\n-->least cost vectors:";
+	for (int i = 0; i < validNormalHyperplanes.size(); i++)
+		validNormalHyperplanes[i].print();
+
+	std::cout << "\n";
+	for (int i = 0; i < dotProductValues.size(); i++)
+		std::cout << dotProductValues[i] << " ";
+
+	return validNormalHyperplanes;
 }
 
 std::vector<int> Loop::orthogonalVector(std::vector<int> vec) {
@@ -1685,7 +1712,7 @@ std::vector<int> Loop::orthogonalVector(std::vector<int> vec) {
 
 void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 
-	// check the validity of function arguments
+	// sanity checking of the input parameter
 
 	if (stmt_num < 0 || stmt_num >= stmt.size())
 		throw std::invalid_argument("invalid statement " + to_string(stmt_num));
@@ -1694,7 +1721,7 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 		throw std::invalid_argument(
 				"invalid number of tiles " + to_string(tile_sizes.size()));
 
-	// check the individual tile size in the set
+	// check the individual tile size in the vector
 	for (int i = 0; i < tile_sizes.size(); i++)
 		if (tile_sizes[i] < 0)
 			throw std::invalid_argument("invalid tile size");
@@ -1705,122 +1732,66 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 	delete last_compute_cg_;
 	last_compute_cg_ = NULL;
 
-	// extract the dependency in the program stmt_num
+	// Extract the dependencies and find the normals of the dependencies
+	std::vector<Vector> dependencies = getDependencies(stmt_num);
+	std::vector<Vector> normals = selectHyperplanes(dependencies);
 
-	std::vector<hyperPlane> dependencyVectors;
-	for (DependenceGraph::EdgeList::iterator j =
-			dep.vertex[stmt_num].second.begin();
-			j != dep.vertex[stmt_num].second.end(); j++) {
+	// normals contains sorted normals with least dep.normal value
 
-		std::vector<DependenceVector> dvs = j->second;
+	if (normals.size() > num_dep_dim) {
 
-		for (int k = 0; k < dvs.size(); k++) {
-
-			// Programs with constant dependency distances
-
-			if (dvs[k].type == DEP_W2R) {
-
-				std::vector<int> depvector;
-
-				for (int z = 0; z < dvs[k].lbounds.size(); z++) {
-
-					omega::coef_t lbound = dvs[k].lbounds[z];
-					omega::coef_t ubound = dvs[k].ubounds[z];
-
-					if (lbound == ubound) {
-						depvector.push_back(lbound);
-					}
-
-				}
-
-				// create a new hyperplane object and add the vector
-				hyperPlane hyperplane;
-				hyperplane.depVector.setVector(depvector);
-				dependencyVectors.push_back(hyperplane);
-
-			}
-
-		}
+		// remove extra normal vectors
+		for (int i = 0; i <= normals.size() - num_dep_dim; i++)
+			normals.pop_back();
 	}
 
-	// Find the normal of the hyperplanes  h.d >= 0
+	std::cout << "selected hyperplanes\n";
 
-	std::vector<Vector> validNormalHyperplanes;
-
-	for (int i = 0; i < dependencyVectors.size(); i++) {
-
-		Vector normal;
-		normal.setVector(dependencyVectors[i].depVector.OrothognalVector());
-
-		bool selected = true;
-
-		for (int j = 0; j < dependencyVectors.size(); j++) {
-
-			if (dependencyVectors[j].depVector.dotProduct(normal) < 0) {
-
-				selected = false;
-				break;
-			}
-
-		}
-
-		if (selected) {
-
-			validNormalHyperplanes.push_back(normal);
-
-		}
-
-	}
-
-	// n-dimensional loop need to have n normal vectors
-
-	if (validNormalHyperplanes.size() != num_dep_dim) {
-
-		if (validNormalHyperplanes.size() > num_dep_dim) {
-
-			// find the most optimal soltions
-
-		} else {
-
-		}
-
-	}
-
-	// define the tiling transformation using Omega
+	for (int i = 0; i < normals.size(); i++)
+		normals[i].print();
 
 	int n = stmt[stmt_num].xform.n_out();
+	int tiled_dimension = normals.size();
+	int chill_tiled_dimensions = 2 * tiled_dimension; // anticipate for auxiliary dimensions in CHiLL
 
-	omega::Relation r(n, 2 * n - 1);
-
+	omega::Relation r(n, n + chill_tiled_dimensions);
 	F_And *root = r.add_and();
 
-	/* define
-	 * [in1,in2,in3,in4,in5]->[out1,out2,out3,out4,in1,in2,in3,in4,in5]
+	/*
+	 * set [in_1,in_2,...,in_n] -> [tile_out_1,tile_out_2,....,tile_out_m,in_1,in_2,...,in_n]
 	 *
 	 */
+
 	for (int i = 1; i <= n; i++) {
 
 		EQ_Handle eq = root->add_EQ();
-		eq.update_coef(r.output_var(n + i - 1), -1);
+		eq.update_coef(r.output_var(chill_tiled_dimensions + i), -1);
 		eq.update_coef(r.input_var(i), 1);
 
 	}
 
 	/*
-	 * [in1,in2,in3,in4,in5]->[0,out2,0,out4,in1,in2,in3,in4,in5]
+	 * set auxiliary tiled dimension to 0
+	 * [in_1,in_2,...,in_n] -> [0,tile_out_2,0,....,tile_out_m,in_1,in_2,...,in_n]
 	 *
 	 */
 
-	for (int i = 1; i < n; i += 2) {
+	for (int i = 1; i < chill_tiled_dimensions; i += 2) {
 
 		EQ_Handle eq = root->add_EQ();
 		eq.update_coef(r.output_var(i), 1);
 	}
 
+	/*
+	 * define the tile dimensions
+	 * [in_1,in_2,...,in_n] -> [0,tile_out_2,0,....,tile_out_m,in_1,in_2,...,in_n]
+	 * tile_out_2 = (N.I)/T1 -> #exists a :  0 <= a < T1 & T1(tile_out_2) + a = N.I and so on
+	 */
+
 	F_Exists *exist = root->add_exists();
 	F_And *AndRel = exist->add_and();
 
-	for (int i = 2; i < n; i += 2) {
+	for (int i = 2; i <= chill_tiled_dimensions; i += 2) {
 
 		Variable_ID e = exist->declare();
 
@@ -1836,22 +1807,23 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 		eq.update_coef(e, 1);
 
 		// extract the selected hyperplanes
-		std::vector<int> normal = validNormalHyperplanes[i / 2 - 1].getVector();
+		std::vector<int> normal = normals[i / 2 - 1].getVector();
 
 		for (int j = 2; j < n; j += 2) {
-
 			eq.update_coef(r.input_var(j), -normal[j / 2 - 1]);
-
 		}
 
 	}
 
-	// tiling schedule
+	/*
+	 * For concurrent start we need to schedule the outer loop
+	 * Define the tile schedule
+	 */
 
-	omega::Relation sch(2 * n - 1, 2 * n - 1);
+	omega::Relation sch(n + chill_tiled_dimensions, n + chill_tiled_dimensions);
 	F_And *sch_root = sch.add_and();
 
-	for (int i = 1; i < 2 * n; i++) {
+	for (int i = 1; i <= n + chill_tiled_dimensions; i++) {
 
 		if (i != 2) {
 
@@ -1865,58 +1837,63 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 
 	EQ_Handle schEQ = sch_root->add_EQ();
 	schEQ.update_coef(sch.output_var(2), 1);
-	for (int i = 2; i < n; i += 2) {
+	for (int i = 2; i <= chill_tiled_dimensions; i += 2) {
 
 		schEQ.update_coef(sch.input_var(i), -1);
 
 	}
 
-	// composition of relations
 	stmt[stmt_num].xform = Composition(r, stmt[stmt_num].xform);
 	stmt[stmt_num].xform = Composition(sch, stmt[stmt_num].xform);
-
 	stmt[stmt_num].xform.simplify();
 	stmt[stmt_num].xform.print();
 
-	//stmt[stmt_num].code = getCode(2);
 
-	// update the new dependencies
+	// change the loop levels for new tiled relations
 
-	for (DependenceGraph::EdgeList::iterator j =
-			dep.vertex[stmt_num].second.begin();
-			j != dep.vertex[stmt_num].second.end(); j++) {
+	std::vector<LoopLevel> lp_level;
 
-		std::vector<DependenceVector> dvs = j->second;
+	for (int i = 0; i < dimensions; i++) {
 
-		for (int k = 0; k < dvs.size(); k++) {
+		LoopLevel ll;
+		ll.type = LoopLevelTile;
+		ll.payload = num_dep_dim + dimensions - (i + 1);
+		ll.parallel_level = 0;
+		stmt[stmt_num].loop_level.insert(stmt[stmt_num].loop_level.begin() + i,
+				ll);
 
-			coef_t lb;
-
-			for (int it = 0; it < validNormalHyperplanes.size(); it++) {
-
-				lb = dependencyVectors[k].depVector.dotProduct_v2(
-						validNormalHyperplanes[it]);
-
-				std::cout << lb;
-
-				dvs[k].lbounds[it] = lb;
-				dvs[k].ubounds[it] = lb;
-			}
-
-			std::cout << std::endl;
-
-		}
-
-		j->second = dvs;
 	}
+
+	return;
 
 }
 
 void Loop::testFunction() {
 
+	// invalidate saved codegen computation
+	delete last_compute_cgr_;
+	last_compute_cgr_ = NULL;
+	delete last_compute_cg_;
+	last_compute_cg_ = NULL;
+
 	int stmt_num = 0;
-	std::vector<hyperPlane> x = getDependencies(stmt_num);
+	std::vector<Vector> x = getDependencies(stmt_num);
 	std::vector<Vector> y = selectHyperplanes(x);
+
+	//std::vector<Vector> y ;
+
+	std::cout << "\n print the loop levels\n";
+	for (int i = 0; i < stmt[stmt_num].loop_level.size(); i++) {
+
+		std::cout << stmt[stmt_num].loop_level[i].type << " "
+				<< stmt[stmt_num].loop_level[i].payload << " "
+				<< stmt[stmt_num].loop_level[i].parallel_level << "\n";
+
+	}
+
+	std::cout << "selected ----\n";
+	for (int i = 0; i < y.size(); i++)
+		y[i].print();
 
 	std::vector<int> tile_sizes;
 	tile_sizes.push_back(32);
@@ -1925,7 +1902,8 @@ void Loop::testFunction() {
 
 	if (y.size() > num_dep_dim) {
 
-		//find the efficient
+		for (int i = 1; i <= y.size() - num_dep_dim; i++)
+			y.pop_back();
 
 	}
 
@@ -1938,10 +1916,11 @@ void Loop::testFunction() {
 
 	}
 
-  for(int i = 0 ; i < y.size() ; i++)
-	y[i].print();
+	std::cout << "\n final set\n";
+	for (int i = 0; i < y.size(); i++)
+		y[i].print();
 
-	/*int n = stmt[stmt_num].xform.n_out();
+	int n = stmt[stmt_num].xform.n_out();
 	int dimensions = y.size();
 
 	omega::Relation r(n, n + 2 * dimensions);
@@ -2024,209 +2003,6 @@ void Loop::testFunction() {
 	stmt[stmt_num].xform = Composition(sch, stmt[stmt_num].xform);
 
 	stmt[stmt_num].xform.simplify();
-	stmt[stmt_num].xform.print();  */
-
-	/*Relation is = stmt[0].IS;
-
-	 is.print();
-
-	 for (DNF_Iterator di(is.query_DNF()); di; di++) {
-
-	 std::cout << "In the conjuct \n";
-	 for (EQ_Iterator ei = (*di)->EQs(); ei; ei++) {
-
-	 std::cout << "in the next equlaity constraint\n";
-	 for (Constr_Vars_Iter cvi(*ei); cvi; cvi++) {
-
-	 std::cout << (*cvi).var->char_name() << " " << (*cvi).coef
-	 << " " << "\n";
-
-	 }
-
-	 }
-
-	 for (GEQ_Iterator gi = (*di)->GEQs(); gi; gi++) {
-
-	 std::cout << "in the next equlaity constraint\n";
-	 for (Constr_Vars_Iter cvi(*gi); cvi; cvi++) {
-	 std::cout << (*cvi).var->char_name() << " " << (*cvi).coef
-	 << " " << (*cvi).var->kind() << "\n";
-
-	 }
-
-	 }
-
-	 }  */
-
-	// tile the external loop
-	/*omega::Relation r(5, 7);
-
-	 F_And *root = r.add_and();
-
-	 EQ_Handle eq0 = root->add_EQ();
-	 eq0.update_coef(r.output_var(1), 1);
-
-	 for (int i = 1; i <= 5; i++) {
-
-	 EQ_Handle eq = root->add_EQ();
-	 eq.update_coef(r.output_var(i + 2), -1);
-	 eq.update_coef(r.input_var(i), 1);
-	 }
-
-	 F_Exists *exist = root->add_exists();
-
-	 Variable_ID t1 = exist->declare("t1");
-	 F_And *EAnd = exist->add_and();
-
-	 EQ_Handle Eeq1 = EAnd->add_EQ();
-	 Eeq1.update_coef(t1, -4);
-	 Eeq1.update_coef(r.output_var(2), 1);
-
-	 GEQ_Handle Egeq1 = EAnd->add_GEQ();
-	 Egeq1.update_coef(t1, 1);
-
-	 GEQ_Handle Egeq2 = EAnd->add_GEQ();
-	 Egeq2.update_coef(r.output_var(4), 1);
-	 Egeq2.update_coef(r.output_var(2), -1);
-
-	 GEQ_Handle Egeq3 = EAnd->add_GEQ();
-	 Egeq3.update_coef(r.output_var(4), -1);
-	 Egeq3.update_coef(r.output_var(2), 1);
-	 Egeq3.update_const(3);
-
-	 stmt[0].xform.print();
-	 stmt[0].xform = Composition(r, stmt[0].xform);
-	 stmt[0].xform.simplify();
-	 stmt[0].xform.print();
-
-	 //	std::vector < std::vector<int> > *depVectors;  */
-
-	/*for (int i = 0; i < dep.vertex.size(); i++) {
-
-	 for (DependenceGraph::EdgeList::iterator j =
-	 dep.vertex[i].second.begin(); j != dep.vertex[i].second.end();
-	 j++) {
-
-	 std::vector<DependenceVector> dvs = j->second;
-
-	 //depVectors = new std::vector<std::vector<int> >(dvs.size());
-
-	 std::cout << " printf the dependecies";
-	 for (int k = 0; k < dvs.size(); k++) {
-
-	 std::cout << dvs[k].type;
-
-	 std::cout << "dependency=(";
-	 for (int z = 0; z < dvs[k].lbounds.size(); z++) {
-
-	 omega::coef_t lbound = dvs[k].lbounds[z];
-	 omega::coef_t ubound = dvs[k].ubounds[z];
-
-	 std::cout << lbound << " " << ubound << " ";
-
-
-	 }
-
-	 std::cout << ")\n";
-
-	 }
-	 }
-
-	 } */
-
-	/*for (int a = 0; a < (*depVectors).size(); a++) {
-
-	 for (int b = 0; b < (*depVectors)[a].size(); b++)
-	 std::cout << (*depVectors)[a][b];
-
-	 std::cout << std::endl;
-	 }
-
-	 std::vector < std::vector<int> > hyperplanes(2);
-	 hyperplanes = get_perpendicular_hyperplanes(
-	 get_widest_vectors(*depVectors));
-	 //vec2 = get_widest_vectors(vec);
-
-	 std::cout << "value of vec (" << hyperplanes[0][0] << ", "
-	 << hyperplanes[0][1] << ")\n" << std::endl;
-	 std::cout << "value of vec (" << hyperplanes[1][0] << ", "
-	 << hyperplanes[1][1] << ")\n" << std::endl;
-
-	 //change the itertion space using omega
-
-	 for (int i = 0; i < stmt.size(); i++) {
-
-	 int n = stmt[i].xform.n_out();
-	 omega::Relation r(n, n);
-
-	 F_And *root = r.add_and();
-	 int k = 0;
-	 for (int j = 1; j <= n; j++) {  // for each element in the relation
-
-	 EQ_Handle eq = root->add_EQ(); // add a equation
-
-	 if (j % 2 == 0) {
-
-	 // at each loop level , multiply with the
-	 int rl = 2;
-
-	 for (int ele = 0; ele < hyperplanes[k].size(); ele++, rl += 2) {
-
-	 eq.update_coef(r.input_var(rl), -hyperplanes[k][ele]);
-
-	 }
-
-	 eq.update_coef(r.output_var(j), 1);
-	 k++;
-
-	 } else { // at auxilary loop levels
-
-	 eq.update_coef(r.input_var(j), 1);
-	 eq.update_coef(r.output_var(j), -1);
-
-	 }
-
-	 }
-
-	 stmt[i].xform = Composition(r, stmt[i].xform);
-	 stmt[i].xform.simplify();
-
-	 }
-
-	 //update the dependency graph before
-	 for (int i = 0; i < dep.vertex.size(); i++) {
-
-	 for (DependenceGraph::EdgeList::iterator j =
-	 dep.vertex[i].second.begin(); j != dep.vertex[i].second.end();
-	 j++) {
-
-	 std::vector<DependenceVector> dvs = j->second;
-
-	 for (int k = 0; k < dvs.size(); k++) {
-
-	 for (int z = 0; z < dvs[k].lbounds.size(); z++) {
-
-	 long long dpdncy = 0;
-
-	 for (int it = 0; it < hyperplanes.size(); it++) {
-
-	 for (int in = 0; in < hyperplanes[it].size(); in++) {
-
-	 dpdncy += hyperplanes[it][in]
-	 * (*depVectors)[z][in];
-
-	 }
-
-	 }
-
-	 std::cout << dpdncy << " ";
-
-	 }
-
-	 }
-	 }
-
-	 }   */
 
 	return;
 }
@@ -2732,7 +2508,7 @@ bool Vector::setVector(std::vector<int> v) {
 
 }
 
-std::vector<int> Vector::getVector() {
+std::vector<int> Vector::getVector() const {
 
 	return vec;
 
@@ -2750,7 +2526,7 @@ float Vector::euclidianDistance() {
 
 }
 
-int Vector::dimension() {
+int Vector::dimension() const {
 
 	return vec.size();
 }
@@ -2841,6 +2617,103 @@ int Vector::dotProduct_v2(Vector v) {
 		return dotprd;
 
 	}
+
+}
+
+/*
+ * pre-condition : both vectors are of the same size
+ *
+ */
+bool Vector::operator<(const Vector &anothervec) const {
+
+	std::vector<int> v = anothervec.getVector();
+	bool lessthan = true;
+
+	for (int i = 0; i < dimension(); i++) {
+
+		if (v[i] < vec[i]) {
+
+			lessthan = false;
+			break;
+		}
+
+	}
+
+	return lessthan;
+}
+
+bool Vector::operator==(const Vector &anothervec) const {
+
+	bool equal = true;
+	std::vector<int> v = anothervec.getVector();
+
+	for (int i = 0; i < dimension(); i++) {
+		if (v[i] != vec[i]) {
+			equal = false;
+			break;
+		}
+	}
+
+	return equal;
+}
+
+/*
+ *
+ *
+ */
+
+bool vector_less(const Vector &vec1, const Vector &vec2) {
+
+	bool less = true;
+	std::vector<int> v1 = vec1.getVector();
+	std::vector<int> v2 = vec2.getVector();
+	int size = vec1.dimension();
+
+	for (int i = 0; i < size; i++) {
+		if (v1[i] >= v2[i]) {
+			less = false;
+			break;
+		}
+	}
+
+	return less;
+
+}
+
+bool vector_equal(const Vector &vec1, const Vector &vec2) {
+
+	bool equal = true;
+	std::vector<int> v1 = vec1.getVector();
+	std::vector<int> v2 = vec2.getVector();
+	int size = vec1.dimension();
+
+	for (int i = 0; i < size; i++) {
+
+		if (v1[i] != v2[i]) {
+
+			equal = false;
+			break;
+
+		}
+
+	}
+
+	return equal;
+
+}
+
+bool contains(std::vector<Vector> vectorList, Vector vec) {
+
+	bool contain = false;
+	for (int i = 0; i < vectorList.size(); i++)
+		if (vector_equal(vectorList[i], vec)) {
+
+			contain = true;
+			break;
+
+		}
+
+	return contain;
 
 }
 
