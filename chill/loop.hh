@@ -234,9 +234,8 @@ public:
 
 	std::vector<Vector> getDependencies(int stmt_num);
 	std::vector<Vector> selectHyperplanes(std::vector<Vector> );
+	std::vector<Vector> selectHyperplanesArrange(std::vector<Vector> selectedHyperplanes);
 	std::vector<int>  orthogonalVector(std::vector<int> ) ;
-
-
 
 	omega::Relation tiledRelation(omega::Relation , omega::Relation , omega::Relation &);
 
@@ -255,9 +254,7 @@ private:
 	std::vector<int> vec;
 
 public:
-
 	Vector(std::vector<int> &v);
-
 	Vector() {};
 	void addElements(int xi);
 	bool setVector(std::vector<int> v) ;
@@ -270,134 +267,6 @@ public:
 	int   dotProduct_v2(Vector v) ;
 	bool operator<(  const Vector &anothervec ) const ;
 	bool operator==(const Vector &anothervec) const ;
-
-
-};
-
-class hyperPlane {
-
-public:
-	Vector depVector;
-	Vector orthoVector;
-
-};
-
-// class to save the depend
-class hyperPlanes {
-
-private:
-	std::vector<int> depvector;      // dependency vector
-	std::vector<int> orthovector; // perpendicular vector
-	int size;
-	float eculd;
-public:
-	void addValues(int xi) {
-
-		depvector.push_back(xi);
-
-	}
-
-	std::vector<int> OrothognalVector() {
-
-		// algorithm to find orthogonal vector is implemented here
-
-		int size = depvector.size();
-
-		int lastele = depvector[size - 1];
-
-		if (lastele != 0) {
-
-			for (int i = 0; i < size; i++) {
-
-				int t = lastele;
-				if (i == size - 1) {
-
-					t = 0;
-					for (int j = 0; j < size - 1; j++)
-						t += -depvector[j];
-
-				}
-
-				t = lastele > 0 ? t : -t;
-				orthovector.push_back(t);
-			}
-
-		} else {
-
-			for (int i = 0; i < size - 1; i++)
-				orthovector.push_back(0);
-			orthovector.push_back(1);
-
-		}
-
-		return orthovector;
-
-	}
-
-	void print() {
-
-		std::cout << "(";
-		for (int i = 0; i < depvector.size() - 1; i++) {
-
-			std::cout << depvector[i] << ",";
-
-		}
-
-		std::cout << depvector[depvector.size() - 1] << ")";
-
-	}
-
-	void printOrtho() {
-
-		OrothognalVector();
-
-		std::cout << "(";
-		for (int i = 0; i < orthovector.size() - 1; i++) {
-
-			std::cout << orthovector[i] << ",";
-
-		}
-
-		std::cout << orthovector[orthovector.size() - 1] << ")";
-
-	}
-
-	float dotProduct(std::vector<int> v, float mod) {
-
-		if (v.size() != depvector.size()) {
-
-			return -10000;
-
-		} else {
-
-			int dotprd = 0;
-			for (int i = 0; i < v.size(); i++) {
-
-				dotprd += v[i] * depvector[i];
-
-			}
-
-			return dotprd / mod;
-
-		}
-
-	}
-
-	float NormalEucldianDistanace() {
-
-		float distance = 0.0;
-
-		for (int i = 0; i < orthovector.size(); i++) {
-
-			distance += pow(orthovector[i], 2);
-
-		}
-
-		eculd = sqrt(distance);
-		return eculd;
-
-	}
-
 };
 
 

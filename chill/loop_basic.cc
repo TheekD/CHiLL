@@ -1581,6 +1581,7 @@ std::vector<Vector> Loop::getDependencies(int stmt_num) {
 
 		}
 	}
+
 	return dependencyVectors;
 
 }
@@ -1596,17 +1597,25 @@ std::vector<Vector> Loop::selectHyperplanes(std::vector<Vector> dependencies) {
 		//normal.setVector(dependencies[i].depVector.OrothognalVector());
 		normal.setVector(orthogonalVector(dependencies[i].getVector()));
 
-		std::cout << "dependency:";
+		std::cout << "\ndependency:";
 		dependencies[i].print();
 		std::cout << " normal vector:";
 		normal.print();
-		std::cout << "\n";
 
 		bool selected = true;
 
-		double dotP = 0;
+		double dotP = 10000.0;
+		int zeroCount = 0;
 		for (int j = 0; j < dependencies.size(); j++) {
-			dotP += dependencies[j].dotProduct(normal);
+
+			//dotP += dependencies[j].dotProduct(normal);
+			double val = dependencies[j].dotProduct(normal);
+			if (val == 0.0)
+				zeroCount++;
+
+			if (val > 0 && dotP > val) {
+				dotP = val;
+			}
 
 			if (dependencies[j].dotProduct(normal) < 0) {
 				selected = false;
@@ -1616,8 +1625,12 @@ std::vector<Vector> Loop::selectHyperplanes(std::vector<Vector> dependencies) {
 		}
 
 		if (selected) {
-			dotP += dotP / dependencies.size();
-			dotProductValues.push_back(dotP);
+			//dotP = dotP / dependencies.size();
+
+			if (zeroCount > 1)
+				dotProductValues.push_back(0.0);
+			else
+				dotProductValues.push_back(dotP);
 			validNormalHyperplanes.push_back(normal);
 
 		}
@@ -1655,7 +1668,99 @@ std::vector<Vector> Loop::selectHyperplanes(std::vector<Vector> dependencies) {
 	for (int i = 0; i < dotProductValues.size(); i++)
 		std::cout << dotProductValues[i] << " ";
 
-	return validNormalHyperplanes;
+	std::vector<Vector> m;
+	m.push_back(validNormalHyperplanes[0]);
+
+	for(int i = 0 ; i < m.size() ; i++) {
+
+		for(int j = 0 ; j < validNormalHyperplanes.size() ; j++) {
+			if( m[i].dotProduct_v2(validNormalHyperplanes[j]) == 0 && !contains(m,validNormalHyperplanes[j])  ) {
+				m.push_back( validNormalHyperplanes[j] ) ;
+				break;
+			}
+
+		}
+
+
+
+	}
+
+	for(int i = 1 ; i < validNormalHyperplanes.size() ; i++) {
+
+		if( !contains(m,validNormalHyperplanes[i]) ) {
+
+			m.push_back( validNormalHyperplanes[i]) ;
+
+		}
+
+	}
+
+	std::cout << "\ndfasdfasdfasaaccccc\n" ;
+	for(int i = 0 ;i < m.size() ; i++) {
+
+		m[i].print();
+
+	}
+
+
+	//return validNormalHyperplanes;
+	return m;
+}
+
+std::vector<Vector> Loop::selectHyperplanesArrange(
+		std::vector<Vector> selectedHyperplanes) {
+	std::vector<Vector> ArrangedValidNormalHyperplanes;
+	std::vector<double> dotProductValues;
+	int min_index = 0;
+
+	ArrangedValidNormalHyperplanes.push_back(selectedHyperplanes[0]);
+
+	for (int i = 0; i < selectedHyperplanes.size(); i++) {
+		dotProductValues.push_back(0);
+	}
+
+	for (int ii = 1; ii < selectedHyperplanes.size(); ii++) {
+
+		for (int k = 0; k < selectedHyperplanes.size(); k++) {
+			dotProductValues[k] = 0.0;
+		}
+
+		for (int i = 1; i < selectedHyperplanes.size(); i++) {
+
+			for (int x = 0; x < ArrangedValidNormalHyperplanes.size(); x++) {
+				if (!vector_equal(selectedHyperplanes[i],
+						selectedHyperplanes[0])) {
+
+					dotProductValues[i] += selectedHyperplanes[i].dotProduct(
+							ArrangedValidNormalHyperplanes[x]);
+
+				}
+
+			}
+		}
+
+		for (int z = 0; z < dotProductValues.size(); z++)
+			std::cout << dotProductValues[z] << " ";
+
+		std::cout << std::endl;
+
+		double min = dotProductValues[1];
+
+		for (int j = 2; j < dotProductValues.size(); j++) {
+
+			if (min > dotProductValues[j]) {
+				min = dotProductValues[j];
+				min_index = j;
+				std::cout << min_index << "**";
+			}
+		}
+		ArrangedValidNormalHyperplanes.push_back(
+				selectedHyperplanes[min_index]);
+		selectedHyperplanes[min_index] = selectedHyperplanes[0];
+
+	}
+
+	return ArrangedValidNormalHyperplanes;
 }
 
 std::vector<int> Loop::orthogonalVector(std::vector<int> vec) {
@@ -1717,7 +1822,7 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 	if (stmt_num < 0 || stmt_num >= stmt.size())
 		throw std::invalid_argument("invalid statement " + to_string(stmt_num));
 
-	if (tile_sizes.size() > num_dep_dim)
+	if (tile_sizes.size() != num_dep_dim)
 		throw std::invalid_argument(
 				"invalid number of tiles " + to_string(tile_sizes.size()));
 
@@ -1736,6 +1841,8 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 	std::vector<Vector> dependencies = getDependencies(stmt_num);
 	std::vector<Vector> normals = selectHyperplanes(dependencies);
 
+//	std::vector<Vector> x = selectHyperplanesArrange(normals) ;
+
 	// normals contains sorted normals with least dep.normal value
 
 	if (normals.size() > num_dep_dim) {
@@ -1745,7 +1852,7 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 			normals.pop_back();
 	}
 
-	std::cout << "selected hyperplanes\n";
+	std::cout << "\nselected hyperplanes\n";
 
 	for (int i = 0; i < normals.size(); i++)
 		normals[i].print();
@@ -1848,12 +1955,11 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 	stmt[stmt_num].xform.simplify();
 	stmt[stmt_num].xform.print();
 
-
 	// change the loop levels for new tiled relations
 
 	std::vector<LoopLevel> lp_level;
 
-	for (int i = 0; i < tiled_dimension ; i++) {
+	for (int i = 0; i < tiled_dimension; i++) {
 
 		LoopLevel ll;
 		ll.type = LoopLevelTile;
@@ -2083,6 +2189,7 @@ omega::Relation Loop::tiledRelation(omega::Relation sch, omega::Relation v,
 
 void Loop::dTile() {
 
+	std::cout << num_dep_dim;
 
 }
 
