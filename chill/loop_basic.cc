@@ -1671,37 +1671,35 @@ std::vector<Vector> Loop::selectHyperplanes(std::vector<Vector> dependencies) {
 	std::vector<Vector> m;
 	m.push_back(validNormalHyperplanes[0]);
 
-	for(int i = 0 ; i < m.size() ; i++) {
+	for (int i = 0; i < m.size(); i++) {
 
-		for(int j = 0 ; j < validNormalHyperplanes.size() ; j++) {
-			if( m[i].dotProduct_v2(validNormalHyperplanes[j]) == 0 && !contains(m,validNormalHyperplanes[j])  ) {
-				m.push_back( validNormalHyperplanes[j] ) ;
+		for (int j = 0; j < validNormalHyperplanes.size(); j++) {
+			if (m[i].dotProduct_v2(validNormalHyperplanes[j]) == 0
+					&& !contains(m, validNormalHyperplanes[j])) {
+				m.push_back(validNormalHyperplanes[j]);
 				break;
 			}
 
 		}
 
-
-
 	}
 
-	for(int i = 1 ; i < validNormalHyperplanes.size() ; i++) {
+	for (int i = 1; i < validNormalHyperplanes.size(); i++) {
 
-		if( !contains(m,validNormalHyperplanes[i]) ) {
+		if (!contains(m, validNormalHyperplanes[i])) {
 
-			m.push_back( validNormalHyperplanes[i]) ;
+			m.push_back(validNormalHyperplanes[i]);
 
 		}
 
 	}
 
-	std::cout << "\ndfasdfasdfasaaccccc\n" ;
-	for(int i = 0 ;i < m.size() ; i++) {
+	std::cout << "\ndfasdfasdfasaaccccc\n";
+	for (int i = 0; i < m.size(); i++) {
 
 		m[i].print();
 
 	}
-
 
 	//return validNormalHyperplanes;
 	return m;
@@ -1927,6 +1925,30 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 	 * Define the tile schedule
 	 */
 
+	/*
+	 * specific implementation of the wave-front coefficient for 2D case to obtain
+	 * full parallelized code by eliminating the space dimnesion from the tile schedule
+	 */
+
+	int wave_front_coefficeints[2] = { 1, 1 };
+
+	if (num_dep_dim == 2) {
+
+		// extract dependencies
+		std::vector<int> normal1 = normals[0].getVector();
+		std::vector<int> normal2 = normals[1].getVector();
+
+		int coef1 = normal1[1];
+		int coef2 = normal2[1];
+
+		if (coef1 * coef2 < 0) {
+			wave_front_coefficeints[1] = -(tile_sizes[1] / tile_sizes[0])
+					* (coef1 / coef2);
+
+		}
+
+	}
+
 	omega::Relation sch(n + chill_tiled_dimensions, n + chill_tiled_dimensions);
 	F_And *sch_root = sch.add_and();
 
@@ -1944,9 +1966,19 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 
 	EQ_Handle schEQ = sch_root->add_EQ();
 	schEQ.update_coef(sch.output_var(2), 1);
-	for (int i = 2; i <= chill_tiled_dimensions; i += 2) {
 
-		schEQ.update_coef(sch.input_var(i), -1);
+	if (num_dep_dim == 2) {
+
+		for (int i = 2; i <= chill_tiled_dimensions; i += 2) {
+
+			schEQ.update_coef(sch.input_var(i), -wave_front_coefficeints[i/2-1]);
+		}
+
+	} else {
+
+		for (int i = 2; i <= chill_tiled_dimensions; i += 2) {
+			schEQ.update_coef(sch.input_var(i), -1);
+		}
 
 	}
 
@@ -1977,138 +2009,140 @@ void Loop::diamond_tile(int stmt_num, const std::vector<int> tile_sizes) {
 void Loop::testFunction() {
 
 	// invalidate saved codegen computation
-	delete last_compute_cgr_;
-	last_compute_cgr_ = NULL;
-	delete last_compute_cg_;
-	last_compute_cg_ = NULL;
 
-	int stmt_num = 0;
-	std::vector<Vector> x = getDependencies(stmt_num);
-	std::vector<Vector> y = selectHyperplanes(x);
+	stmt[0].xform.print();
+	/*delete last_compute_cgr_;
+	 last_compute_cgr_ = NULL;
+	 delete last_compute_cg_;
+	 last_compute_cg_ = NULL;
 
-	//std::vector<Vector> y ;
+	 int stmt_num = 0;
+	 std::vector<Vector> x = getDependencies(stmt_num);
+	 std::vector<Vector> y = selectHyperplanes(x);
 
-	std::cout << "\n print the loop levels\n";
-	for (int i = 0; i < stmt[stmt_num].loop_level.size(); i++) {
+	 //std::vector<Vector> y ;
 
-		std::cout << stmt[stmt_num].loop_level[i].type << " "
-				<< stmt[stmt_num].loop_level[i].payload << " "
-				<< stmt[stmt_num].loop_level[i].parallel_level << "\n";
+	 std::cout << "\n print the loop levels\n";
+	 for (int i = 0; i < stmt[stmt_num].loop_level.size(); i++) {
 
-	}
+	 std::cout << stmt[stmt_num].loop_level[i].type << " "
+	 << stmt[stmt_num].loop_level[i].payload << " "
+	 << stmt[stmt_num].loop_level[i].parallel_level << "\n";
 
-	std::cout << "selected ----\n";
-	for (int i = 0; i < y.size(); i++)
-		y[i].print();
+	 }
 
-	std::vector<int> tile_sizes;
-	tile_sizes.push_back(32);
-	tile_sizes.push_back(32);
-	tile_sizes.push_back(32);
+	 std::cout << "selected ----\n";
+	 for (int i = 0; i < y.size(); i++)
+	 y[i].print();
 
-	if (y.size() > num_dep_dim) {
+	 std::vector<int> tile_sizes;
+	 tile_sizes.push_back(32);
+	 tile_sizes.push_back(32);
+	 tile_sizes.push_back(32);
 
-		for (int i = 1; i <= y.size() - num_dep_dim; i++)
-			y.pop_back();
+	 if (y.size() > num_dep_dim) {
 
-	}
+	 for (int i = 1; i <= y.size() - num_dep_dim; i++)
+	 y.pop_back();
 
-	// if only a dependeny exist we chose to set diamond tiling to time iteration and 1st data dimension
-	if (y.size() == 1) {
+	 }
 
-		Vector normal;
-		normal.setVector(y[0].OrothognalVector());
-		y.push_back(normal);
+	 // if only a dependeny exist we chose to set diamond tiling to time iteration and 1st data dimension
+	 if (y.size() == 1) {
 
-	}
+	 Vector normal;
+	 normal.setVector(y[0].OrothognalVector());
+	 y.push_back(normal);
 
-	std::cout << "\n final set\n";
-	for (int i = 0; i < y.size(); i++)
-		y[i].print();
+	 }
 
-	int n = stmt[stmt_num].xform.n_out();
-	int dimensions = y.size();
+	 std::cout << "\n final set\n";
+	 for (int i = 0; i < y.size(); i++)
+	 y[i].print();
 
-	omega::Relation r(n, n + 2 * dimensions);
+	 int n = stmt[stmt_num].xform.n_out();
+	 int dimensions = y.size();
 
-	F_And *root = r.add_and();
+	 omega::Relation r(n, n + 2 * dimensions);
 
-	for (int i = 1; i <= n; i++) {
+	 F_And *root = r.add_and();
 
-		EQ_Handle eq = root->add_EQ();
-		eq.update_coef(r.output_var(2 * dimensions + i), -1);
-		eq.update_coef(r.input_var(i), 1);
+	 for (int i = 1; i <= n; i++) {
 
-	}
+	 EQ_Handle eq = root->add_EQ();
+	 eq.update_coef(r.output_var(2 * dimensions + i), -1);
+	 eq.update_coef(r.input_var(i), 1);
 
-	for (int i = 1; i < 2 * dimensions; i += 2) {
+	 }
 
-		EQ_Handle eq = root->add_EQ();
-		eq.update_coef(r.output_var(i), 1);
-	}
+	 for (int i = 1; i < 2 * dimensions; i += 2) {
 
-	F_Exists *exist = root->add_exists();
-	F_And *AndRel = exist->add_and();
+	 EQ_Handle eq = root->add_EQ();
+	 eq.update_coef(r.output_var(i), 1);
+	 }
 
-	for (int i = 2; i <= 2 * dimensions; i += 2) {
+	 F_Exists *exist = root->add_exists();
+	 F_And *AndRel = exist->add_and();
 
-		Variable_ID e = exist->declare();
+	 for (int i = 2; i <= 2 * dimensions; i += 2) {
 
-		GEQ_Handle geq1 = AndRel->add_GEQ();
-		geq1.update_coef(e, 1);
+	 Variable_ID e = exist->declare();
 
-		GEQ_Handle geq2 = AndRel->add_GEQ();
-		geq2.update_coef(e, -1);
-		geq1.update_const(tile_sizes[i / 2 - 1] - 1);
+	 GEQ_Handle geq1 = AndRel->add_GEQ();
+	 geq1.update_coef(e, 1);
 
-		EQ_Handle eq = AndRel->add_EQ();
-		eq.update_coef(r.output_var(i), tile_sizes[i / 2 - 1]);
-		eq.update_coef(e, 1);
+	 GEQ_Handle geq2 = AndRel->add_GEQ();
+	 geq2.update_coef(e, -1);
+	 geq1.update_const(tile_sizes[i / 2 - 1] - 1);
 
-		// extract the selected hyperplanes
-		std::vector<int> normal = y[i / 2 - 1].getVector();
+	 EQ_Handle eq = AndRel->add_EQ();
+	 eq.update_coef(r.output_var(i), tile_sizes[i / 2 - 1]);
+	 eq.update_coef(e, 1);
 
-		for (int j = 2; j < n; j += 2) {
+	 // extract the selected hyperplanes
+	 std::vector<int> normal = y[i / 2 - 1].getVector();
 
-			eq.update_coef(r.input_var(j), -normal[j / 2 - 1]);
+	 for (int j = 2; j < n; j += 2) {
 
-		}
+	 eq.update_coef(r.input_var(j), -normal[j / 2 - 1]);
 
-	}
+	 }
 
-	// tiling schedule
+	 }
 
-	omega::Relation sch(n + 2 * dimensions, n + 2 * dimensions);
-	F_And *sch_root = sch.add_and();
+	 // tiling schedule
 
-	for (int i = 1; i <= n + 2 * dimensions; i++) {
+	 omega::Relation sch(n + 2 * dimensions, n + 2 * dimensions);
+	 F_And *sch_root = sch.add_and();
 
-		if (i != 2) {
+	 for (int i = 1; i <= n + 2 * dimensions; i++) {
 
-			EQ_Handle eq = sch_root->add_EQ();
-			eq.update_coef(sch.input_var(i), -1);
-			eq.update_coef(sch.output_var(i), 1);
+	 if (i != 2) {
 
-		}
+	 EQ_Handle eq = sch_root->add_EQ();
+	 eq.update_coef(sch.input_var(i), -1);
+	 eq.update_coef(sch.output_var(i), 1);
 
-	}
+	 }
 
-	EQ_Handle schEQ = sch_root->add_EQ();
-	schEQ.update_coef(sch.output_var(2), 1);
-	for (int i = 2; i <= 2 * dimensions; i += 2) {
+	 }
 
-		schEQ.update_coef(sch.input_var(i), -1);
+	 EQ_Handle schEQ = sch_root->add_EQ();
+	 schEQ.update_coef(sch.output_var(2), 1);
+	 for (int i = 2; i <= 2 * dimensions; i += 2) {
 
-	}
+	 schEQ.update_coef(sch.input_var(i), -1);
 
-	// composition of relations
-	r.simplify();
-	r.print();
+	 }
 
-	stmt[stmt_num].xform = Composition(r, stmt[stmt_num].xform);
-	stmt[stmt_num].xform = Composition(sch, stmt[stmt_num].xform);
+	 // composition of relations
+	 r.simplify();
+	 r.print();
 
-	stmt[stmt_num].xform.simplify();
+	 stmt[stmt_num].xform = Composition(r, stmt[stmt_num].xform);
+	 stmt[stmt_num].xform = Composition(sch, stmt[stmt_num].xform);
+
+	 stmt[stmt_num].xform.simplify();  */
 
 	return;
 }
