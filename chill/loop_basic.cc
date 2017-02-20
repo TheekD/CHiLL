@@ -1604,7 +1604,7 @@ std::vector<Vector> Loop::selectHyperplanes(std::vector<Vector> dependencies) {
 
 		bool selected = true;
 
-		double dotP = 10000.0;
+		double dotP = 0.0;
 		int zeroCount = 0;
 		for (int j = 0; j < dependencies.size(); j++) {
 
@@ -1613,8 +1613,8 @@ std::vector<Vector> Loop::selectHyperplanes(std::vector<Vector> dependencies) {
 			if (val == 0.0)
 				zeroCount++;
 
-			if (val > 0 && dotP > val) {
-				dotP = val;
+			if (val > 0 ) {
+				dotP += val;
 			}
 
 			if (dependencies[j].dotProduct(normal) < 0) {
@@ -1625,11 +1625,11 @@ std::vector<Vector> Loop::selectHyperplanes(std::vector<Vector> dependencies) {
 		}
 
 		if (selected) {
-			//dotP = dotP / dependencies.size();
+			dotP = dotP / dependencies.size();
 
-			if (zeroCount > 1)
-				dotProductValues.push_back(0.0);
-			else
+			//if (zeroCount > 1)
+			//	dotProductValues.push_back(0.0);
+		//	/else
 				dotProductValues.push_back(dotP);
 			validNormalHyperplanes.push_back(normal);
 
@@ -1694,7 +1694,7 @@ std::vector<Vector> Loop::selectHyperplanes(std::vector<Vector> dependencies) {
 
 	}
 
-	std::cout << "\ndfasdfasdfasaaccccc\n";
+	std::cout << "\best hyperplane normals\n";
 	for (int i = 0; i < m.size(); i++) {
 
 		m[i].print();
